@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwrts55c6qkt7"]
+[gd_scene load_steps=10 format=3 uid="uid://bwrts55c6qkt7"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_24yu1"]
+[ext_resource type="Script" path="res://forces/BalancePoint.gd" id="2_phktv"]
+[ext_resource type="Script" path="res://camera/CameraAnchor.gd" id="3_sfxyw"]
+[ext_resource type="Script" path="res://camera/CameraJoint.gd" id="4_rd12h"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_wkulj"]
 
@@ -10,6 +13,10 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jqj2t"]
 height = 2.14115
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dmqn3"]
+radius = 0.0348061
+height = 0.179372
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_24yu1")
@@ -28,3 +35,25 @@ mesh = SubResource("SphereMesh_1w5w7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0.0205967, 0)
 shape = SubResource("CapsuleShape3D_jqj2t")
+
+[node name="BalancePoint" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_phktv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalancePoint"]
+shape = SubResource("CapsuleShape3D_dmqn3")
+
+[node name="CameraAnchor" type="Node3D" parent="."]
+script = ExtResource("3_sfxyw")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraAnchor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322781, 0)
+script = ExtResource("4_rd12h")
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.469946)
+current = true
+
+[connection signal="area_entered" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_entered"]
+[connection signal="area_exited" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_exited"]

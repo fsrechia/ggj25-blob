@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqwfnu476fybe"]
+
+[ext_resource type="PackedScene" uid="uid://bwrts55c6qkt7" path="res://scenes/Player.tscn" id="1_ehd2s"]
+[ext_resource type="Script" path="res://forces/PointGravity.gd" id="2_3bfpc"]
+[ext_resource type="Script" path="res://forces/GravityFalloffModelShifted.gd" id="3_34mut"]
+[ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://camera/EmptySpace.tres" id="4_n5u1a"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wxncd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_n4tnp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cj5mn"]
+radius = 0.612352
+
+[node name="Planet" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ehd2s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11518, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_wxncd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("SphereMesh_n4tnp")
+
+[node name="GravityWell" type="Area3D" parent="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+gravity_space_override = 3
+gravity_point = true
+script = ExtResource("2_3bfpc")
+
+[node name="BoundingShape" type="CollisionShape3D" parent="StaticBody3D/GravityWell"]
+shape = SubResource("SphereShape3D_cj5mn")
+
+[node name="FalloffModel" type="Node" parent="StaticBody3D/GravityWell"]
+script = ExtResource("3_34mut")
+start_radius = 52.0
+
+[node name="Light3D" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03398, 0)
+shadow_enabled = true
+
+[node name="LightmapGI" type="LightmapGI" parent="Light3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Light3D"]
+environment = ExtResource("4_n5u1a")
