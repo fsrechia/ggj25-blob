@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqwfnu476fybe"]
 
-[ext_resource type="PackedScene" uid="uid://bwrts55c6qkt7" path="res://scenes/Player.tscn" id="1_ehd2s"]
+[ext_resource type="PackedScene" uid="uid://bwrts55c6qkt7" path="res://Scenes/Player.tscn" id="1_ehd2s"]
 [ext_resource type="Script" path="res://forces/PointGravity.gd" id="2_3bfpc"]
 [ext_resource type="Script" path="res://forces/GravityFalloffModelShifted.gd" id="3_34mut"]
 [ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://camera/EmptySpace.tres" id="4_n5u1a"]
