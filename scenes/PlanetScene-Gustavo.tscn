@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://lnigpd0cfnkk"]
+
+[ext_resource type="PackedScene" uid="uid://cdojqe8wlahxs" path="res://player/Player.tscn" id="1_tojgm"]
+[ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://materials/Stone.tres" id="2_uvgxw"]
+[ext_resource type="Script" path="res://forces/PointGravity.gd" id="3_4j3au"]
+[ext_resource type="Script" path="res://forces/GravityFalloffModelShifted.gd" id="4_spgrl"]
+[ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://camera/EmptySpace.tres" id="5_3l6m2"]
+[ext_resource type="Script" path="res://Scripts/AtmosphericBubble.gd" id="6_2hmap"]
+[ext_resource type="PackedScene" uid="uid://dw5xxbvfeewwt" path="res://scenes/Prefabs/OxygenCylinder.tscn" id="7_dkx77"]
+[ext_resource type="PackedScene" uid="uid://dwlp57hf1prxp" path="res://scenes/Prefabs/Soap.tscn" id="8_v4rmj"]
+[ext_resource type="PackedScene" uid="uid://dwnv17pebasdn" path="res://scenes/Prefabs/Water.tscn" id="9_t8xvu"]
+
+[sub_resource type="SphereShape3D" id="3"]
+radius = 50.0
+
+[sub_resource type="SphereShape3D" id="2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_mcsil"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sh315"]
+
+[node name="Node3D2" type="Node3D"]
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_tojgm")]
+transform = Transform3D(0.999894, 0, 0, 0, 0.999894, 0, 0, 0, 0.999894, 0.000900745, 50.9251, 0.068177)
+collision_layer = 1
+
+[node name="Planet" type="StaticBody3D" parent="."]
+
+[node name="Mesh" type="CSGSphere3D" parent="Planet"]
+radius = 50.0
+radial_segments = 70
+rings = 70
+material = ExtResource("2_uvgxw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet"]
+shape = SubResource("3")
+
+[node name="GravityWell" type="Area3D" parent="Planet"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_4j3au")
+
+[node name="BoundingShape" type="CollisionShape3D" parent="Planet/GravityWell"]
+shape = SubResource("2")
+
+[node name="FalloffModel" type="Node" parent="Planet/GravityWell"]
+script = ExtResource("4_spgrl")
+start_radius = 52.0
+
+[node name="Light3D" type="Node" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="Light3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.454285, 129.014, -0.860413)
+shadow_enabled = true
+
+[node name="LightmapGI" type="LightmapGI" parent="Light3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Light3D"]
+environment = ExtResource("5_3l6m2")
+
+[node name="AtmosphericBubble" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.9294, -3.82828)
+mesh = SubResource("SphereMesh_mcsil")
+script = ExtResource("6_2hmap")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="AtmosphericBubble"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AtmosphericBubble/StaticBody3D"]
+shape = SubResource("SphereShape3D_sh315")
+
+[node name="OxygenCylinder" parent="." instance=ExtResource("7_dkx77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7743, -24.4667, 0)
+
+[node name="Soap" parent="." instance=ExtResource("8_v4rmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75712, 50.5302, 7.93952)
+
+[node name="Water" parent="." instance=ExtResource("9_t8xvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8442, 32.0509, 0)

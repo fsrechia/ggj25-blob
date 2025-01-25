@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw5xxbvfeewwt"]
+
+[ext_resource type="Script" path="res://scripts/Item.gd" id="1_8wjan"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h6lfq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4sqrr"]
+
+[node name="OxygenCylinder" type="Area3D" groups=["OxygenItem"]]
+script = ExtResource("1_8wjan")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_h6lfq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_4sqrr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

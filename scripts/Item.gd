@@ -13,5 +13,11 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if "Player" in body.name:
-		#update property of player has item
+		if is_in_group("WaterItem"):
+			body.has_water = true
+		elif is_in_group("OxygenItem"):
+			body.has_oxygen_cylinder = true
+		elif is_in_group("SoapItem"):
+			body.has_soap = true
+		#Play SFX
 		queue_free()

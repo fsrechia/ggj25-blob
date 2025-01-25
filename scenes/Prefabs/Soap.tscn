@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwlp57hf1prxp"]
+
+[ext_resource type="Script" path="res://scripts/Item.gd" id="1_iboy2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hssyg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_trjf4"]
+
+[node name="Soap" type="Area3D" groups=["SoapItem"]]
+script = ExtResource("1_iboy2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["SoapItem"]]
+shape = SubResource("CylinderShape3D_hssyg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["SoapItem"]]
+mesh = SubResource("CylinderMesh_trjf4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

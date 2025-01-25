@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwnv17pebasdn"]
+
+[ext_resource type="Script" path="res://scripts/Item.gd" id="1_qtbgr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5u8gv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3fqxm"]
+
+[node name="Water" type="Area3D" groups=["WaterItem"]]
+script = ExtResource("1_qtbgr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5u8gv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3fqxm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

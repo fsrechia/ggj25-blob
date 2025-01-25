@@ -12,6 +12,9 @@ extends CharacterBody3D
 @onready var _balance_point: BalancePoint = $BalancePoint
 @onready var _camera_anchor: CameraAnchor = $CameraAnchor
 
+var has_water := false
+var has_oxygen_cylinder := false
+var has_soap := false
 
 static func get_movement_input() -> Vector2:
 	var vector := Vector2(
