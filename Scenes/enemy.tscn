@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://muyule2qiun"]
+
+[ext_resource type="PackedScene" uid="uid://gb7eu8q3lmaa" path="res://Assets/enemy/Pinion Idle.glb" id="1_g6635"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2vri1"]
+radius = 1.38666
+height = 4.73538
+
+[node name="PinionCharacterBody3D" instance=ExtResource("1_g6635")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(2.0023e-09, -0.100079, -2.85385e-09)
+bones/0/rotation = Quaternion(-0.114905, 0.00207634, -0.0179463, 0.993212)
+bones/2/position = Vector3(-4.49035e-09, -0.19015, -1.6165e-09)
+bones/2/rotation = Quaternion(-1.95109e-07, 0.0210597, 0.999778, 3.47558e-09)
+bones/6/rotation = Quaternion(0.000790074, -0.218783, 0.975442, -0.0254238)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/polySurface5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0998394, 0)
+shape = SubResource("CapsuleShape3D_2vri1")
