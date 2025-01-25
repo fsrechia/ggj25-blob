@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dts5h5fspdt4v"]
+
+[ext_resource type="PackedScene" uid="uid://bwrts55c6qkt7" path="res://Scenes/Player.tscn" id="1_fsxvb"]
+[ext_resource type="Script" path="res://Scripts/camera_controller.gd" id="2_h03lm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wiay5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6grrh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n45p2"]
+radius = 0.612352
+
+[node name="Node" type="Node"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_wiay5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("SphereMesh_6grrh")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector3(0, 0, 0)
+gravity_direction = Vector3(0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
+shape = SubResource("SphereShape3D_n45p2")
+
+[node name="Player" parent="." instance=ExtResource("1_fsxvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19209e-07, 0.625531, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75259, 3.94995, 0)
+
+[node name="CameraController" type="Node3D" parent="."]
+script = ExtResource("2_h03lm")
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+transform = Transform3D(0.036197, -0.77002, 0.636992, 0.0891672, 0.637356, 0.765393, -0.995359, 0.0290939, 0.0917309, 0.349154, 1.10656, 0.0244153)
