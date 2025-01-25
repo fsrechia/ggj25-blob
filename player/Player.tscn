@@ -41,6 +41,7 @@ collision_mask = 2
 script = ExtResource("4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BalancePoint"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("2")
 
 [node name="CameraAnchor" type="Node3D" parent="."]
