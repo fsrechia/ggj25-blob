@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bwrts55c6qkt7"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_24yu1"]
-[ext_resource type="Script" path="res://forces/BalancePoint.gd" id="2_phktv"]
-[ext_resource type="Script" path="res://camera/CameraAnchor.gd" id="3_sfxyw"]
-[ext_resource type="Script" path="res://camera/CameraJoint.gd" id="4_rd12h"]
+[ext_resource type="Script" path="res://Forces/BalancePoint.gd" id="2_phktv"]
+[ext_resource type="Script" path="res://Camera/CameraAnchor.gd" id="3_sfxyw"]
+[ext_resource type="Script" path="res://Camera/CameraJoint.gd" id="4_rd12h"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_wkulj"]
 

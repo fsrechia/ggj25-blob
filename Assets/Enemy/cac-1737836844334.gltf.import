@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b3i1v2ysiey0t"
-path="res://.godot/imported/Pinion_Anim_Voando.fbx-d0a1628533f1e2ef577c440cb4e7d9d8.scn"
+uid="uid://pex7fi7fxa63"
+path="res://.godot/imported/cac-1737836844334.gltf-0c6fcd55ace5d92f82c3e3135f0d3b09.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion_Anim_Voando.fbx"
-dest_files=["res://.godot/imported/Pinion_Anim_Voando.fbx-d0a1628533f1e2ef577c440cb4e7d9d8.scn"]
+source_file="res://Assets/Enemy/cac-1737836844334.gltf"
+dest_files=["res://.godot/imported/cac-1737836844334.gltf-0c6fcd55ace5d92f82c3e3135f0d3b09.scn"]
 
 [params]
 
@@ -27,11 +27,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1

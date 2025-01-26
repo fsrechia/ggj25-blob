@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://rotaln27bhat"
-path="res://.godot/imported/GEO_pinion.fbx-e80991b4e39e426a2746ecb995422c9c.scn"
+uid="uid://2ff3mgcnp1nr"
+path="res://.godot/imported/Pinion_Anim_Andando(1).fbx-02949856cff094788d07f340a14d931f.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/GEO_pinion.fbx"
-dest_files=["res://.godot/imported/GEO_pinion.fbx-e80991b4e39e426a2746ecb995422c9c.scn"]
+source_file="res://Assets/Enemy/Pinion_Anim_Andando(1).fbx"
+dest_files=["res://.godot/imported/Pinion_Anim_Andando(1).fbx-02949856cff094788d07f340a14d931f.scn"]
 
 [params]
 

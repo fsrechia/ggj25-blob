@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://yeveyeb5a75p"
-path="res://.godot/imported/Pinion Andando.glb-58c22d7477ec84c9a6dffaeace03ef75.scn"
+uid="uid://gb7eu8q3lmaa"
+path="res://.godot/imported/Pinion Idle.glb-6f8357251d723946bb8912151f3d1e4d.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion Andando.glb"
-dest_files=["res://.godot/imported/Pinion Andando.glb-58c22d7477ec84c9a6dffaeace03ef75.scn"]
+source_file="res://Assets/Enemy/Pinion Idle.glb"
+dest_files=["res://.godot/imported/Pinion Idle.glb-6f8357251d723946bb8912151f3d1e4d.scn"]
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
+nodes/root_type="CharacterBody3D"
+nodes/root_name="PinionCharacterBody3D"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

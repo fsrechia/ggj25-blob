@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://weu3s1jaht0y"
-path.s3tc="res://.godot/imported/Pinion Andando_file1-file2.png-0c1d827e9cb5279247dbab3f4d7da047.s3tc.ctex"
+uid="uid://uj5wqal2uc71"
+path.s3tc="res://.godot/imported/Pinion Andando exportado diferente_file1-file2.png-bbacb3d5de3d58775f4ce265798c61ef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion Andando_file1-file2.png"
-dest_files=["res://.godot/imported/Pinion Andando_file1-file2.png-0c1d827e9cb5279247dbab3f4d7da047.s3tc.ctex"]
+source_file="res://Scenes/Pinion Andando exportado diferente_file1-file2.png"
+dest_files=["res://.godot/imported/Pinion Andando exportado diferente_file1-file2.png-bbacb3d5de3d58775f4ce265798c61ef.s3tc.ctex"]
 
 [params]
 

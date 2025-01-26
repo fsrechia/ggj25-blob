@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csbn6xt8vvmih"
-path.s3tc="res://.godot/imported/Pinion - Rigado_file1-file2.png-5806b5073abeea9aeb7450d7b4522d55.s3tc.ctex"
+uid="uid://b314orku67lpr"
+path.s3tc="res://.godot/imported/Pinion Voando_file1-file2.png-b82fa81e70368b9a1d42d7ba02c6d384.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion - Rigado_file1-file2.png"
-dest_files=["res://.godot/imported/Pinion - Rigado_file1-file2.png-5806b5073abeea9aeb7450d7b4522d55.s3tc.ctex"]
+source_file="res://Assets/Enemy/Pinion Voando_file1-file2.png"
+dest_files=["res://.godot/imported/Pinion Voando_file1-file2.png-b82fa81e70368b9a1d42d7ba02c6d384.s3tc.ctex"]
 
 [params]
 
