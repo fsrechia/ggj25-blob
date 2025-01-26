@@ -1,18 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwlp57hf1prxp"]
 
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="1_iboy2"]
+[ext_resource type="PackedScene" uid="uid://drm3jl5t3khpb" path="res://Assets/Itens/Sabão.fbx" id="2_imvm7"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_hssyg"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_trjf4"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c3x25"]
+radius = 1.15819
+height = 4.05806
 
 [node name="Soap" type="Area3D" groups=["SoapItem"]]
 script = ExtResource("1_iboy2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["SoapItem"]]
-shape = SubResource("CylinderShape3D_hssyg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.153315, -0.378822, 0)
+shape = SubResource("CapsuleShape3D_c3x25")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["SoapItem"]]
-mesh = SubResource("CylinderMesh_trjf4")
+[node name="Sabão" parent="." instance=ExtResource("2_imvm7")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
