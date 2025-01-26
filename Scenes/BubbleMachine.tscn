@@ -20,5 +20,13 @@ mesh = SubResource("BoxMesh_o2dhl")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0323072, 0.450604, -0.075943)
 shape = SubResource("BoxShape3D_3dho0")
 
+[node name="Message3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30843, 2.34868, 2.73369)
+visible = false
+visibility_range_fade_mode = 2
+billboard = 1
+text = "Press Interact Button to Deposit Itens"
+font_size = 72
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

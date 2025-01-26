@@ -5,6 +5,8 @@ var entered = false
 var items_delivered = 0
 var max_items = 3
 
+@onready var message3D = $Message3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,7 +14,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#button deliver.visible = entered & !activated
+	if entered && !activated:
+		message3D.show()
+	else:
+		message3D.hide()
+	
+
 	if Input.is_action_just_pressed("interact") && activated:
 		queue_free()
 
