@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://i8xhwaan8svk" path="res://Assets/Itens/Maquina.fbx" id="2_dbcit"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8f3i"]
-size = Vector3(2.62507, 0.802713, 3.39511)
+size = Vector3(1.42481, 0.802713, 0.690258)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ipqem"]
 size = Vector3(2.48752, 2.06252, 3.24448)
@@ -13,17 +13,17 @@ size = Vector3(2.48752, 2.06252, 3.24448)
 script = ExtResource("1_mhl8v")
 
 [node name="Message3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.722708, 4.72016, 6.96684)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394589, 6.14981, 10.149)
 visibility_range_fade_mode = 2
 billboard = 1
+modulate = Color(0.0687983, 0.0687983, 0.0687983, 1)
 text = "Press Interact Button to Deposit Itens"
-font_size = 72
+font_size = 120
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.0986432, 1.64817, 2.3705)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.164723, 1.64817, 7.67185)
 shape = SubResource("BoxShape3D_b8f3i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Area3D"]

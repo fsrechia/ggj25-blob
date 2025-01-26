@@ -157,13 +157,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.533, 46.6306, 11.6842)
 transform = Transform3D(0.343233, -0.93925, 0, 0.93925, 0.343233, 0, 0, 0, 1, -41.5104, 23.0442, 7.78782)
 
 [node name="Machine" parent="." instance=ExtResource("18_vir7n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23148, 45.5301, -7.01762)
+transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 6.36793, 45.706, -7.01762)
 
 [node name="Soap" parent="." instance=ExtResource("19_pc0h8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8979, 25.0357, -7.16946)
+transform = Transform3D(-0.502155, -0.349007, -0.791224, -0.570714, 0.821149, 0, 0.649713, 0.451562, -0.611527, -39.7995, 23.8102, -6.98294)
 
 [node name="Water" parent="." instance=ExtResource("20_2to41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5368, 28.8736, -34.7683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2811, 30.2958, -34.6363)
 
 [node name="OxygenCylinder" parent="." instance=ExtResource("21_ky8ul")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2719, 18.7352, -25.4758)
