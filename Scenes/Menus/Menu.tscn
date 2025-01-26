@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bikm0wbdryvtp"]
+
+[ext_resource type="AudioStream" uid="uid://nj3i1h4maooy" path="res://Assets/Audio/space-bubble-menu.wav" id="1_jkgi1"]
+
+[node name="Menu" type="Node"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Start
+"
+
+[node name="Quit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_jkgi1")
+autoplay = true
