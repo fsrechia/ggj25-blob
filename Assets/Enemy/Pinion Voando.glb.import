@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://rotaln27bhat"
-path="res://.godot/imported/GEO_pinion.fbx-e80991b4e39e426a2746ecb995422c9c.scn"
+uid="uid://c7d7xot0xfd04"
+path="res://.godot/imported/Pinion Voando.glb-0705c0d476cf1211975a62d9997b6581.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/GEO_pinion.fbx"
-dest_files=["res://.godot/imported/GEO_pinion.fbx-e80991b4e39e426a2746ecb995422c9c.scn"]
+source_file="res://Assets/Enemy/Pinion Voando.glb"
+dest_files=["res://.godot/imported/Pinion Voando.glb-0705c0d476cf1211975a62d9997b6581.scn"]
 
 [params]
 
@@ -27,11 +27,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1

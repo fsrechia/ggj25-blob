@@ -1,15 +1,16 @@
 [gd_scene load_steps=15 format=3 uid="uid://lnigpd0cfnkk"]
 
-[ext_resource type="PackedScene" uid="uid://cdojqe8wlahxs" path="res://player/Player.tscn" id="1_tojgm"]
-[ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://materials/Stone.tres" id="2_uvgxw"]
-[ext_resource type="Script" path="res://forces/PointGravity.gd" id="3_4j3au"]
-[ext_resource type="Script" path="res://forces/GravityFalloffModelShifted.gd" id="4_spgrl"]
-[ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://camera/EmptySpace.tres" id="5_3l6m2"]
+[ext_resource type="PackedScene" uid="uid://cdojqe8wlahxs" path="res://Player/Player.tscn" id="1_tojgm"]
+[ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_uvgxw"]
+[ext_resource type="Script" path="res://Forces/PointGravity.gd" id="3_4j3au"]
+[ext_resource type="Script" path="res://Forces/GravityFalloffModelShifted.gd" id="4_spgrl"]
+[ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://Camera/EmptySpace.tres" id="5_3l6m2"]
 [ext_resource type="Script" path="res://Scripts/AtmosphericBubble.gd" id="6_2hmap"]
 [ext_resource type="PackedScene" uid="uid://dw5xxbvfeewwt" path="res://scenes/Prefabs/OxygenCylinder.tscn" id="7_dkx77"]
 [ext_resource type="PackedScene" uid="uid://dwlp57hf1prxp" path="res://scenes/Prefabs/Soap.tscn" id="8_v4rmj"]
 [ext_resource type="PackedScene" uid="uid://dwnv17pebasdn" path="res://scenes/Prefabs/Water.tscn" id="9_t8xvu"]
 [ext_resource type="PackedScene" uid="uid://d3hq35v3outce" path="res://scenes/BubbleMachine.tscn" id="10_uld5n"]
+
 
 [sub_resource type="SphereShape3D" id="3"]
 radius = 50.0

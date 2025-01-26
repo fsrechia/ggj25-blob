@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chr5vb6ai1dw4"
-path="res://.godot/imported/Pinion_Anim_Andando.fbx-a3f0aeb895d4e6ff5ee23ff6b8b6024a.scn"
+uid="uid://c2yteb6os5q7x"
+path="res://.godot/imported/Pinion_Anim_Idle.fbx-7621b7633d91cb54ff22cea7593719e0.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion_Anim_Andando.fbx"
-dest_files=["res://.godot/imported/Pinion_Anim_Andando.fbx-a3f0aeb895d4e6ff5ee23ff6b8b6024a.scn"]
+source_file="res://Assets/Enemy/Pinion_Anim_Idle.fbx"
+dest_files=["res://.godot/imported/Pinion_Anim_Idle.fbx-7621b7633d91cb54ff22cea7593719e0.scn"]
 
 [params]
 

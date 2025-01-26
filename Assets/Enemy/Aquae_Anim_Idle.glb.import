@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dbbkxeyv08288"
-path="res://.godot/imported/Pinion - Rigado.glb-083df1b287e8e6f785d1fe5008dc0ce1.scn"
+uid="uid://dw8t7ma567iku"
+path="res://.godot/imported/Aquae_Anim_Idle.glb-58056f5004284e05f41e0a5654b0ceb9.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion - Rigado.glb"
-dest_files=["res://.godot/imported/Pinion - Rigado.glb-083df1b287e8e6f785d1fe5008dc0ce1.scn"]
+source_file="res://Assets/Enemy/Aquae_Anim_Idle.glb"
+dest_files=["res://.godot/imported/Aquae_Anim_Idle.glb-58056f5004284e05f41e0a5654b0ceb9.scn"]
 
 [params]
 
-nodes/root_type="CharacterBody3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

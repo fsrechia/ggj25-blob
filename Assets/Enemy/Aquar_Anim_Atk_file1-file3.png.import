@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfqkyd2kn6tiy"
-path.s3tc="res://.godot/imported/Pinion Atk1_file1-file2.png-5efb7b0013b5a201c38aebb3311f810e.s3tc.ctex"
+uid="uid://hy5m0xv2u4mh"
+path.s3tc="res://.godot/imported/Aquar_Anim_Atk_file1-file3.png-c303f5a2eeda1de29193a2adda0a196f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d48691f9d2d5cf2d709cd6cec2744042"
+"md5": "828ad1a96d792468ad165be145c76790"
 }
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion Atk1_file1-file2.png"
-dest_files=["res://.godot/imported/Pinion Atk1_file1-file2.png-5efb7b0013b5a201c38aebb3311f810e.s3tc.ctex"]
+source_file="res://Assets/Enemy/Aquar_Anim_Atk_file1-file3.png"
+dest_files=["res://.godot/imported/Aquar_Anim_Atk_file1-file3.png-c303f5a2eeda1de29193a2adda0a196f.s3tc.ctex"]
 
 [params]
 

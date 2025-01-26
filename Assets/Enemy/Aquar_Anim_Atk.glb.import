@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://pex7fi7fxa63"
-path="res://.godot/imported/cac-1737836844334.gltf-db638141896ea84cb4d75c44e43fc160.scn"
+uid="uid://ccpmoocqpfdy5"
+path="res://.godot/imported/Aquar_Anim_Atk.glb-7536a99999824ba2528515da85aa4488.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/cac-1737836844334.gltf"
-dest_files=["res://.godot/imported/cac-1737836844334.gltf-db638141896ea84cb4d75c44e43fc160.scn"]
+source_file="res://Assets/Enemy/Aquar_Anim_Atk.glb"
+dest_files=["res://.godot/imported/Aquar_Anim_Atk.glb-7536a99999824ba2528515da85aa4488.scn"]
 
 [params]
 

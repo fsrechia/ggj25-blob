@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg23amam0tsav"
-path.s3tc="res://.godot/imported/Pinion Idle_file1-file2.png-194a6e858f63c1960c03c59ec7ead3a2.s3tc.ctex"
+uid="uid://bfqkyd2kn6tiy"
+path.s3tc="res://.godot/imported/Pinion Atk1_file1-file2.png-d5828404c9ec50b106654d01a0718e70.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion Idle_file1-file2.png"
-dest_files=["res://.godot/imported/Pinion Idle_file1-file2.png-194a6e858f63c1960c03c59ec7ead3a2.s3tc.ctex"]
+source_file="res://Assets/Enemy/Pinion Atk1_file1-file2.png"
+dest_files=["res://.godot/imported/Pinion Atk1_file1-file2.png-d5828404c9ec50b106654d01a0718e70.s3tc.ctex"]
 
 [params]
 

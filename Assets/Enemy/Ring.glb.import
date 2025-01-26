@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c2yteb6os5q7x"
-path="res://.godot/imported/Pinion_Anim_Idle.fbx-4a38dd8c310826660fac1d12f8839ee6.scn"
+uid="uid://brfsskdc57jm8"
+path="res://.godot/imported/Ring.glb-0ca91b77135ca80a1340f035c7eb6f54.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion_Anim_Idle.fbx"
-dest_files=["res://.godot/imported/Pinion_Anim_Idle.fbx-4a38dd8c310826660fac1d12f8839ee6.scn"]
+source_file="res://Assets/Enemy/Ring.glb"
+dest_files=["res://.godot/imported/Ring.glb-0ca91b77135ca80a1340f035c7eb6f54.scn"]
 
 [params]
 
@@ -27,11 +27,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b314orku67lpr"
-path.s3tc="res://.godot/imported/Pinion Voando_file1-file2.png-f6c1805ff6f545d2df85e72530788776.s3tc.ctex"
+uid="uid://d35u57wtv43xg"
+path.s3tc="res://.godot/imported/Aquae_Anim_Idle_file1-file3.png-365e87280f5dfd19df93be5c43155731.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d48691f9d2d5cf2d709cd6cec2744042"
+"md5": "828ad1a96d792468ad165be145c76790"
 }
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion Voando_file1-file2.png"
-dest_files=["res://.godot/imported/Pinion Voando_file1-file2.png-f6c1805ff6f545d2df85e72530788776.s3tc.ctex"]
+source_file="res://Assets/Enemy/Aquae_Anim_Idle_file1-file3.png"
+dest_files=["res://.godot/imported/Aquae_Anim_Idle_file1-file3.png-365e87280f5dfd19df93be5c43155731.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://yeveyeb5a75p"
-path="res://.godot/imported/Pinion Andando.glb-58c22d7477ec84c9a6dffaeace03ef75.scn"
+path="res://.godot/imported/Pinion Andando.glb-e5632a554aa6597d3be8b403b7652d7c.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion Andando.glb"
-dest_files=["res://.godot/imported/Pinion Andando.glb-58c22d7477ec84c9a6dffaeace03ef75.scn"]
+source_file="res://Assets/Enemy/Pinion Andando.glb"
+dest_files=["res://.godot/imported/Pinion Andando.glb-e5632a554aa6597d3be8b403b7652d7c.scn"]
 
 [params]
 

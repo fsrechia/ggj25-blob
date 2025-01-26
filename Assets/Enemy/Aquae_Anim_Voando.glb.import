@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c7d7xot0xfd04"
-path="res://.godot/imported/Pinion Voando.glb-5c8d82b3547fe898294de69d10ae43c8.scn"
+uid="uid://ctlw8d6kb34om"
+path="res://.godot/imported/Aquae_Anim_Voando.glb-eefee883e5090a3005f43e85c138b745.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion Voando.glb"
-dest_files=["res://.godot/imported/Pinion Voando.glb-5c8d82b3547fe898294de69d10ae43c8.scn"]
+source_file="res://Assets/Enemy/Aquae_Anim_Voando.glb"
+dest_files=["res://.godot/imported/Aquae_Anim_Voando.glb-eefee883e5090a3005f43e85c138b745.scn"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh57wgdhv7ife"
-path.s3tc="res://.godot/imported/cac-1737836844334_0.png-85e1dc8b36de9e94b202b7ff17d97225.s3tc.ctex"
+uid="uid://r6kwrjxi5840"
+path.s3tc="res://.godot/imported/Aquae_Anim_Voando_file1-file3.png-bdd356100c1b7ff5742ddbf8e5040e93.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2e53619eb0de822adf7eff7d1093308a"
+"md5": "828ad1a96d792468ad165be145c76790"
 }
 
 [deps]
 
-source_file="res://Assets/enemy/cac-1737836844334_0.png"
-dest_files=["res://.godot/imported/cac-1737836844334_0.png-85e1dc8b36de9e94b202b7ff17d97225.s3tc.ctex"]
+source_file="res://Assets/Enemy/Aquae_Anim_Voando_file1-file3.png"
+dest_files=["res://.godot/imported/Aquae_Anim_Voando_file1-file3.png-bdd356100c1b7ff5742ddbf8e5040e93.s3tc.ctex"]
 
 [params]
 

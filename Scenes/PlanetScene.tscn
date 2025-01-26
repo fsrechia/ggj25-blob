@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://bppn1jo6uahww"]
 
-[ext_resource type="PackedScene" uid="uid://cdojqe8wlahxs" path="res://player/Player.tscn" id="1_e6wx7"]
-[ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://materials/Stone.tres" id="2_3e4hk"]
-[ext_resource type="Script" path="res://forces/PointGravity.gd" id="3_k6k61"]
-[ext_resource type="Script" path="res://forces/GravityFalloffModelShifted.gd" id="4_rc4l4"]
-[ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://camera/EmptySpace.tres" id="5_5kygm"]
+[ext_resource type="PackedScene" uid="uid://cdojqe8wlahxs" path="res://Player/Player.tscn" id="1_e6wx7"]
+[ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
+[ext_resource type="Script" path="res://Forces/PointGravity.gd" id="3_k6k61"]
+[ext_resource type="Script" path="res://Forces/GravityFalloffModelShifted.gd" id="4_rc4l4"]
+[ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://Camera/EmptySpace.tres" id="5_5kygm"]
 [ext_resource type="Script" path="res://Scripts/AtmosphericBubble.gd" id="6_xcch3"]
-[ext_resource type="PackedScene" uid="uid://cwtly0gvu1l1q" path="res://scenes/enemy.tscn" id="7_y31jd"]
+[ext_resource type="PackedScene" uid="uid://cwtly0gvu1l1q" path="res://Scenes/Enemy.tscn" id="7_y31jd"]
 
 [sub_resource type="SphereShape3D" id="3"]
 radius = 50.0

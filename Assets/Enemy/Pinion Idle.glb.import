@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://gb7eu8q3lmaa"
-path="res://.godot/imported/Pinion Idle.glb-c94d081c6482ddb23d2ae681318bf38b.scn"
+path="res://.godot/imported/Pinion Idle.glb-6f8357251d723946bb8912151f3d1e4d.scn"
 
 [deps]
 
-source_file="res://Assets/enemy/Pinion Idle.glb"
-dest_files=["res://.godot/imported/Pinion Idle.glb-c94d081c6482ddb23d2ae681318bf38b.scn"]
+source_file="res://Assets/Enemy/Pinion Idle.glb"
+dest_files=["res://.godot/imported/Pinion Idle.glb-6f8357251d723946bb8912151f3d1e4d.scn"]
 
 [params]
 
