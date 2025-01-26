@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="BLOB"
+config/name="Atman saves the planet! (again)"
 run/main_scene="res://Scenes/PlanetScene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Autoloader="*res://Scripts/Autoloader.gd"
 
 [input]
 
