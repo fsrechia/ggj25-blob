@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3hq35v3outce"]
 
-[ext_resource type="Script" path="res://scripts/BubbleMachine.gd" id="1_fdogk"]
+[ext_resource type="Script" path="res://Scripts/BubbleMachine.gd" id="1_fdogk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o2dhl"]
 
@@ -21,12 +21,30 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0323072, 0.450604, -0.0759
 shape = SubResource("BoxShape3D_3dho0")
 
 [node name="Message3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30843, 2.34868, 2.73369)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.917172, 2.28809, 2.73369)
 visible = false
 visibility_range_fade_mode = 2
 billboard = 1
 text = "Press Interact Button to Deposit Itens"
 font_size = 72
+
+[node name="WaterDelivered" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1526, 3.11469, 3.45909)
+visible = false
+text = "WATER DELIVERED"
+font_size = 80
+
+[node name="SoapDelivered" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.07621, 2.55735, 4)
+visible = false
+text = "SOAP DELIVERED"
+font_size = 80
+
+[node name="CylinderDelivered" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4256, 1, 3)
+visible = false
+text = "CYLINDER DELIVERED"
+font_size = 80
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
