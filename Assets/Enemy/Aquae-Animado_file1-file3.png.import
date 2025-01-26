@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpgai4m27vty6"
-path.s3tc="res://.godot/imported/Ring_file1-file3.png-be51dabbe77577002ad8c79ca3d44bde.s3tc.ctex"
+uid="uid://bcbc0rtbcfkjc"
+path.s3tc="res://.godot/imported/Aquae-Animado_file1-file3.png-120b4ddd8a676554284580865ba3fce4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Enemy/Ring_file1-file3.png"
-dest_files=["res://.godot/imported/Ring_file1-file3.png-be51dabbe77577002ad8c79ca3d44bde.s3tc.ctex"]
+source_file="res://Assets/Enemy/Aquae-Animado_file1-file3.png"
+dest_files=["res://.godot/imported/Aquae-Animado_file1-file3.png-120b4ddd8a676554284580865ba3fce4.s3tc.ctex"]
 
 [params]
 

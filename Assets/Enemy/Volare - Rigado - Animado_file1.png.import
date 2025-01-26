@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hy5m0xv2u4mh"
-path.s3tc="res://.godot/imported/Aquar_Anim_Atk_file1-file3.png-c303f5a2eeda1de29193a2adda0a196f.s3tc.ctex"
+uid="uid://sfyv4vnvjm26"
+path.s3tc="res://.godot/imported/Volare - Rigado - Animado_file1.png-12158406e7d05aa99a0328dab2fd5ba9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "828ad1a96d792468ad165be145c76790"
+"md5": "f88fb204f47f20667a4167a695d97714"
 }
 
 [deps]
 
-source_file="res://Assets/Enemy/Aquar_Anim_Atk_file1-file3.png"
-dest_files=["res://.godot/imported/Aquar_Anim_Atk_file1-file3.png-c303f5a2eeda1de29193a2adda0a196f.s3tc.ctex"]
+source_file="res://Assets/Enemy/Volare - Rigado - Animado_file1.png"
+dest_files=["res://.godot/imported/Volare - Rigado - Animado_file1.png-12158406e7d05aa99a0328dab2fd5ba9.s3tc.ctex"]
 
 [params]
 

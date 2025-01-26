@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=21 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://3auo2ux28qa6" path="res://Assets/Audio/space-bubble-theme-tense-orch.wav" id="9_0to2v"]
 [ext_resource type="AudioStream" uid="uid://bpmlmoqks6b5c" path="res://Assets/Audio/space-bubble-theme-tense-orchtrap.wav" id="10_hhjdc"]
 [ext_resource type="Script" path="res://Scenes/ScriptedAudioStream.gd" id="11_mb7kq"]
+[ext_resource type="PackedScene" uid="uid://dy1g5krdw0bka" path="res://Scenes/Enemy_Aquae.tscn" id="15_0c8hm"]
 
 [sub_resource type="SphereShape3D" id="2"]
 
@@ -133,3 +134,6 @@ script = ExtResource("11_mb7kq")
 [node name="TimeRemaining" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Aquae-Animado" parent="." instance=ExtResource("15_0c8hm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1404, 30.1152, 7.00767)

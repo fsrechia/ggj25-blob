@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy1g5krdw0bka"]
+
+[ext_resource type="PackedScene" uid="uid://c5m2tbkx6ps1t" path="res://Assets/Enemy/Aquae-Animado.glb" id="1_4fiuk"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="2_8fkvs"]
+[ext_resource type="Script" path="res://Forces/BalancePoint.gd" id="3_2j4xe"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b2ofi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhq1x"]
+radius = 0.15
+height = 0.3
+
+[node name="Aquae-Animado" instance=ExtResource("1_4fiuk")]
+script = ExtResource("2_8fkvs")
+
+[node name="Aquae" parent="." index="0"]
+visible = false
+
+[node name="Skeleton3D" parent="Aquae" index="0"]
+visible = false
+bones/0/position = Vector3(-2.0125e-09, 0.055129, 0.118134)
+bones/0/rotation = Quaternion(-0.00614787, 0.000557997, -0.0904063, 0.995886)
+bones/1/position = Vector3(-1.61047e-16, -0.362646, 0.318047)
+bones/1/rotation = Quaternion(0.999549, -3.58142e-09, -1.19155e-07, 0.0300431)
+bones/2/rotation = Quaternion(0.591096, -4.41223e-15, -1.40928e-07, 0.806601)
+bones/3/rotation = Quaternion(0.442255, -8.79652e-17, -1.05442e-07, 0.896889)
+bones/4/rotation = Quaternion(-0.667366, -7.38773e-15, 1.59113e-07, 0.74473)
+bones/5/rotation = Quaternion(-0.543261, -5.48051e-15, 1.29524e-07, 0.839564)
+bones/6/rotation = Quaternion(-0.366148, -1.90892e-15, 8.72965e-08, 0.930557)
+bones/7/rotation = Quaternion(-0.407376, -3.26607e-07, 2.42815e-07, 0.913261)
+bones/8/position = Vector3(-5.85013e-17, -0.131734, -0.488031)
+bones/8/rotation = Quaternion(0.94357, 3.94789e-08, -1.12482e-07, -0.331173)
+bones/9/rotation = Quaternion(-0.407057, 3.88954e-15, 9.70499e-08, 0.913403)
+bones/10/rotation = Quaternion(0.413106, 5.13433e-15, -9.84922e-08, 0.910683)
+bones/11/rotation = Quaternion(0.546118, -6.04952e-15, -1.30205e-07, 0.837708)
+bones/12/position = Vector3(0.740614, -0.323407, -0.103418)
+bones/12/rotation = Quaternion(0.133118, -0.196641, 0.932777, -0.27118)
+bones/13/rotation = Quaternion(-0.271879, -0.0139631, -0.236882, 0.932617)
+bones/14/rotation = Quaternion(0.623957, 0.0913616, -0.261662, 0.73066)
+bones/15/rotation = Quaternion(0.580769, 0.0275099, -0.288572, 0.760708)
+bones/16/position = Vector3(-0.740614, -0.323407, -0.103418)
+bones/16/rotation = Quaternion(-0.133118, -0.196641, 0.932777, 0.27118)
+bones/17/rotation = Quaternion(-0.271879, 0.0139631, 0.236882, 0.932617)
+bones/18/rotation = Quaternion(0.623957, -0.0913616, 0.261662, 0.73066)
+bones/19/rotation = Quaternion(0.580769, -0.0275099, 0.288572, 0.760708)
+
+[node name="GEO_aquae1" parent="Aquae/Skeleton3D" index="0"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, -0.956639)
+shape = SubResource("CapsuleShape3D_b2ofi")
+
+[node name="BalancePoint" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51382, -1.05471)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_2j4xe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalancePoint" index="0"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_fhq1x")
+
+[connection signal="area_entered" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_entered"]
+[connection signal="area_exited" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_exited"]
