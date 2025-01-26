@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://fn2l653piy6x"]
+[gd_scene load_steps=14 format=3 uid="uid://fn2l653piy6x"]
 
 [ext_resource type="PackedScene" uid="uid://gb7eu8q3lmaa" path="res://Assets/Enemy/Pinion Idle.glb" id="1_vf7cj"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="2_0352b"]
+[ext_resource type="PackedScene" uid="uid://dj124py8208l0" path="res://Assets/Enemy/PinionAnimado.glb" id="3_f4fg6"]
 [ext_resource type="Script" path="res://Forces/BalancePoint.gd" id="3_yv1rw"]
 [ext_resource type="Script" path="res://Camera/CameraAnchor.gd" id="4_5l1me"]
 [ext_resource type="Script" path="res://Camera/CameraJoint.gd" id="5_vf030"]
@@ -22,7 +23,6 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lfm24"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_i1ur3"]
-graph_offset = Vector2(-167.341, 225.895)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_lfm24")
 nodes/Animation/position = Vector2(20, 140)
 nodes/output/position = Vector2(300, 160)
@@ -38,18 +38,38 @@ script = ExtResource("2_0352b")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, -0.956639)
 shape = SubResource("CapsuleShape3D_fhqdd")
 
+[node name="Pinion - Animado" parent="." index="1" instance=ExtResource("3_f4fg6")]
+
+[node name="Pinio" parent="Pinion - Animado" index="0"]
+transform = Transform3D(1, -1.06577e-16, -2.72495e-17, 1.06577e-16, 0.877279, 0.47998, -2.72495e-17, -0.47998, 0.877279, 0, 2.16692, -0.933788)
+
+[node name="Skeleton3D" parent="Pinion - Animado/Pinio" index="0"]
+bones/0/position = Vector3(0, -0.438066, 0.842076)
+bones/0/rotation = Quaternion(0.14596, 1.17933e-07, 1.73997e-08, 0.989291)
+bones/1/rotation = Quaternion(0.02586, 3.31797e-14, 6.16551e-09, 0.999666)
+bones/2/position = Vector3(-2.65255e-14, -0.438066, 0.842076)
+bones/2/rotation = Quaternion(-1.90435e-07, -0.201537, 0.979481, 3.78958e-08)
+bones/3/position = Vector3(0.946814, -1.60936, -0.17008)
+bones/3/rotation = Quaternion(0.00581361, -0.463669, 0.885643, 0.0247627)
+bones/4/rotation = Quaternion(0.806515, 1.72986e-08, -0.00232334, 0.59121)
+bones/5/rotation = Quaternion(0.123545, 8.96744e-09, -0.00674619, 0.992316)
+bones/6/position = Vector3(-0.946814, -1.60936, -0.17008)
+bones/6/rotation = Quaternion(-0.00581361, -0.463669, 0.885643, -0.0247627)
+bones/7/rotation = Quaternion(0.806515, -1.7696e-08, 0.00232334, 0.59121)
+bones/8/rotation = Quaternion(0.123545, -9.55448e-09, 0.00674619, 0.992316)
+
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(-0.114924, 1.18419e-07, -1.37e-08, 0.993374)
 bones/6/rotation = Quaternion(0.000790074, -0.218783, 0.975442, -0.0254238)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
 root_node = NodePath("../BalancePoint/CollisionShape3D")
 libraries = {
 "aef": SubResource("AnimationLibrary_emoub")
 }
 tree_root = SubResource("AnimationNodeBlendTree_i1ur3")
 
-[node name="BalancePoint" type="Area3D" parent="." index="4"]
+[node name="BalancePoint" type="Area3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51382, -1.05471)
 collision_layer = 0
 collision_mask = 2
@@ -59,7 +79,7 @@ script = ExtResource("3_yv1rw")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_rkcne")
 
-[node name="CameraAnchor" type="Node3D" parent="." index="5"]
+[node name="CameraAnchor" type="Node3D" parent="." index="6"]
 script = ExtResource("4_5l1me")
 
 [node name="CameraArm" type="SpringArm3D" parent="CameraAnchor" index="0"]
@@ -74,3 +94,5 @@ far = 550.0
 
 [connection signal="area_entered" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_entered"]
 [connection signal="area_exited" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_exited"]
+
+[editable path="Pinion - Animado"]

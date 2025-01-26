@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dy1g5krdw0bka"]
 
-[ext_resource type="PackedScene" uid="uid://c5m2tbkx6ps1t" path="res://Assets/Enemy/Aquae-Animado.glb" id="1_4fiuk"]
+[ext_resource type="PackedScene" uid="uid://c5m2tbkx6ps1t" path="res://Assets/Enemy/AquaeAnimado.glb" id="1_4fiuk"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="2_8fkvs"]
 [ext_resource type="Script" path="res://Forces/BalancePoint.gd" id="3_2j4xe"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=20 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -9,12 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://c2qaycdxyamuh" path="res://Assets/Planet/Planeta 2.glb" id="5_msvbl"]
 [ext_resource type="Script" path="res://Scripts/AtmosphericBubble.gd" id="6_xcch3"]
 [ext_resource type="AudioStream" uid="uid://co0c0uighcuua" path="res://Assets/Audio/space-bubble-theme-chill.wav" id="7_rsok5"]
-[ext_resource type="PackedScene" uid="uid://fn2l653piy6x" path="res://Player/AnimatedPlayer.tscn" id="8_1wvoy"]
 [ext_resource type="AudioStream" uid="uid://btnv0hfcrf76y" path="res://Assets/Audio/space-bubble-theme-tense-clock.wav" id="8_n7rh4"]
 [ext_resource type="AudioStream" uid="uid://3auo2ux28qa6" path="res://Assets/Audio/space-bubble-theme-tense-orch.wav" id="9_0to2v"]
 [ext_resource type="AudioStream" uid="uid://bpmlmoqks6b5c" path="res://Assets/Audio/space-bubble-theme-tense-orchtrap.wav" id="10_hhjdc"]
 [ext_resource type="Script" path="res://Scenes/ScriptedAudioStream.gd" id="11_mb7kq"]
-[ext_resource type="PackedScene" uid="uid://dy1g5krdw0bka" path="res://Scenes/Enemy_Aquae.tscn" id="15_0c8hm"]
+[ext_resource type="PackedScene" uid="uid://c6ih3pn7cktny" path="res://Player/AnimatedPlayer3.tscn" id="14_x40ld"]
 
 [sub_resource type="SphereShape3D" id="2"]
 
@@ -100,9 +99,15 @@ start_radius = 52.0
 
 [node name="Sun" type="DirectionalLight3D" parent="Light3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.454285, 129.014, -0.860413)
+light_energy = 1.2
+light_indirect_energy = 7.2
+light_volumetric_fog_energy = 6.0
 shadow_enabled = true
-shadow_opacity = 0.47
-shadow_blur = 9.609
+shadow_normal_bias = 3.375
+shadow_opacity = 0.37
+shadow_blur = 10.0
+directional_shadow_blend_splits = true
+directional_shadow_pancake_size = 0.5
 
 [node name="LightmapGI" type="LightmapGI" parent="Light3D"]
 
@@ -123,9 +128,6 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AtmosphericBubble/StaticBody3D"]
 shape = SubResource("SphereShape3D_sh315")
 
-[node name="PinionCharacterBody3D2" parent="." instance=ExtResource("8_1wvoy")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.97956, 48.5772, 6.37714)
-
 [node name="ScriptedAudioStream" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_186sn")
 autoplay = true
@@ -135,5 +137,5 @@ script = ExtResource("11_mb7kq")
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Aquae-Animado" parent="." instance=ExtResource("15_0c8hm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1404, 30.1152, 7.00767)
+[node name="AquaeAnimado" parent="." instance=ExtResource("14_x40ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.2678, 0)

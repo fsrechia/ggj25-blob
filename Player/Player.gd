@@ -12,6 +12,8 @@ extends CharacterBody3D
 @onready var _balance_point: BalancePoint = $BalancePoint
 @onready var _camera_anchor: CameraAnchor = $CameraAnchor
 
+@onready var anim: AnimationPlayer = $AnimationPlayer
+
 var has_water := false
 var has_oxygen_cylinder := false
 var has_soap := false
@@ -56,20 +58,28 @@ func _physics_process(delta: float) -> void:
 	# What controls is the player inputting?
 	var movement_input := get_movement_input()
 
+
 	# Where does the player want to move?
 	var movement_intention := project_movement_intention(
 		get_viewport().get_camera_3d().global_transform.basis,
 		_balance_point.up,
 		movement_input
 	)
+	if movement_intention != Vector3.ZERO:
+		$AnimationTree.set("parameters/movements/transition_request", "walk")
+	else:
+		$AnimationTree.set("parameters/movements/transition_request", "idle")
 
 	# How much control does the player get over the character?
 	var current_velocity_control: float
 	var current_torque_control: float
 	if self.is_on_floor():
+		$AnimationTree.set("parameters/in_air/transition_request", "false")
 		current_velocity_control = velocity_control_floor
 		current_torque_control = torque_control_floor
 	else:
+		# jump animation
+		$AnimationTree.set("parameters/in_air/transition_request", "true")
 		current_velocity_control = velocity_control_air
 		current_torque_control = torque_control_air
 	
@@ -95,7 +105,10 @@ func _process_jumping():
 	var is_jumping := self.is_on_floor() and Input.is_action_just_pressed( "jump")
 	if is_jumping:
 		velocity += up * jump_strength - velocity.project(up)
+		#anim.play("Atak")
+		anim.play("Voando")
 
+	
 
 func _process_walking(movement_intention: Vector3, control: float):
 	var up := _balance_point.up
@@ -104,6 +117,8 @@ func _process_walking(movement_intention: Vector3, control: float):
 	# Just in case: delete "up" component.
 	# If we didn't do this, we would stay levitating in the air.
 	desired_velocity_change -= desired_velocity_change.project(up)
+
+	
 
 	velocity = velocity.move_toward(
 		velocity + desired_velocity_change,
