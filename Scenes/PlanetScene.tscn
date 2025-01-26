@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=19 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
 [ext_resource type="PackedScene" uid="uid://coqp6023uuofy" path="res://Assets/Planet/Planeta 3.glb" id="2_yn5ct"]
 [ext_resource type="Script" path="res://Forces/PointGravity.gd" id="3_k6k61"]
 [ext_resource type="Script" path="res://Forces/GravityFalloffModelShifted.gd" id="4_rc4l4"]
 [ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://Camera/EmptySpace.tres" id="5_5kygm"]
+[ext_resource type="PackedScene" uid="uid://c2qaycdxyamuh" path="res://Assets/Planet/Planeta 2.glb" id="5_msvbl"]
 [ext_resource type="Script" path="res://Scripts/AtmosphericBubble.gd" id="6_xcch3"]
 [ext_resource type="AudioStream" uid="uid://co0c0uighcuua" path="res://Assets/Audio/space-bubble-theme-chill.wav" id="7_rsok5"]
 [ext_resource type="PackedScene" uid="uid://fn2l653piy6x" path="res://Player/AnimatedPlayer.tscn" id="8_1wvoy"]
@@ -66,11 +67,39 @@ shape = SubResource("2")
 script = ExtResource("4_rc4l4")
 start_radius = 52.0
 
+[node name="Planet2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.898911, 137.458)
+
+[node name="Mesh" type="CSGSphere3D" parent="Planet2"]
+visible = false
+radius = 50.0
+radial_segments = 70
+rings = 70
+material = ExtResource("2_3e4hk")
+
+[node name="Planeta 2" parent="Planet2" instance=ExtResource("5_msvbl")]
+transform = Transform3D(42, 0, 0, 0, 42, 0, 0, 0, 42, 0, 0, 0)
+
+[node name="GravityWell" type="Area3D" parent="Planet2"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_k6k61")
+
+[node name="BoundingShape" type="CollisionShape3D" parent="Planet2/GravityWell"]
+shape = SubResource("2")
+
+[node name="FalloffModel" type="Node" parent="Planet2/GravityWell"]
+script = ExtResource("4_rc4l4")
+start_radius = 52.0
+
 [node name="Light3D" type="Node" parent="."]
 
 [node name="Sun" type="DirectionalLight3D" parent="Light3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.454285, 129.014, -0.860413)
 shadow_enabled = true
+shadow_opacity = 0.47
+shadow_blur = 9.609
 
 [node name="LightmapGI" type="LightmapGI" parent="Light3D"]
 
