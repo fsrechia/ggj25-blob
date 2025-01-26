@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://forces/GravityFalloffModelShifted.gd" id="4_rc4l4"]
 [ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://camera/EmptySpace.tres" id="5_5kygm"]
 [ext_resource type="Script" path="res://Scripts/AtmosphericBubble.gd" id="6_xcch3"]
-[ext_resource type="PackedScene" uid="uid://cwtly0gvu1l1q" path="res://scenes/enemy.tscn" id="7_y31jd"]
+[ext_resource type="PackedScene" uid="uid://cwtly0gvu1l1q" path="res://Scenes/Enemy.tscn" id="7_y31jd"]
 
 [sub_resource type="SphereShape3D" id="3"]
 radius = 50.0
