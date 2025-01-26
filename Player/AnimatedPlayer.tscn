@@ -35,7 +35,7 @@ height = 0.3
 script = ExtResource("2_0352b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, -0.956639)
 shape = SubResource("CapsuleShape3D_fhqdd")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
@@ -50,7 +50,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_i1ur3")
 
 [node name="BalancePoint" type="Area3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51382, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51382, -1.05471)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_yv1rw")
