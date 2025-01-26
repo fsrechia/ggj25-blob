@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://lnigpd0cfnkk"]
+[gd_scene load_steps=15 format=3 uid="uid://lnigpd0cfnkk"]
 
 [ext_resource type="PackedScene" uid="uid://cdojqe8wlahxs" path="res://player/Player.tscn" id="1_tojgm"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://materials/Stone.tres" id="2_uvgxw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dw5xxbvfeewwt" path="res://scenes/Prefabs/OxygenCylinder.tscn" id="7_dkx77"]
 [ext_resource type="PackedScene" uid="uid://dwlp57hf1prxp" path="res://scenes/Prefabs/Soap.tscn" id="8_v4rmj"]
 [ext_resource type="PackedScene" uid="uid://dwnv17pebasdn" path="res://scenes/Prefabs/Water.tscn" id="9_t8xvu"]
+[ext_resource type="PackedScene" uid="uid://d3hq35v3outce" path="res://scenes/BubbleMachine.tscn" id="10_uld5n"]
 
 [sub_resource type="SphereShape3D" id="3"]
 radius = 50.0
@@ -73,10 +74,13 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_sh315")
 
 [node name="OxygenCylinder" parent="." instance=ExtResource("7_dkx77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7743, -24.4667, 0)
+transform = Transform3D(0.303022, -0.855709, -0.419452, 0.942641, 0.333807, 0, 0.140016, -0.395393, 0.907777, 44.3644, -24.4667, 0)
 
 [node name="Soap" parent="." instance=ExtResource("8_v4rmj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75712, 50.5302, 7.93952)
 
 [node name="Water" parent="." instance=ExtResource("9_t8xvu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8442, 32.0509, 0)
+
+[node name="BubbleMachine" parent="." instance=ExtResource("10_uld5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14022, 50.9294, -3.82828)

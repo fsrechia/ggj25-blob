@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3hq35v3outce"]
+
+[ext_resource type="Script" path="res://scripts/BubbleMachine.gd" id="1_fdogk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o2dhl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3dho0"]
+size = Vector3(1, 0.979492, 1)
+
+[node name="BubbleMachine" type="Node3D"]
+script = ExtResource("1_fdogk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.965, 0, 0, 0, 1.965, 0, 0, 0, 1.965, -0.0941283, 0.430455, -0.075943)
+mesh = SubResource("BoxMesh_o2dhl")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0323072, 0.450604, -0.075943)
+shape = SubResource("BoxShape3D_3dho0")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
