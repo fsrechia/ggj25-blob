@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		#timer.wait_time = 2.0
 		#timer.timeout.connect(_timer_Timeout)
 		#timer.start()
-		queue_free()
+		#queue_free()
 
 
 

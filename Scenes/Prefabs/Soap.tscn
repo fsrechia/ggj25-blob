@@ -4,17 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://drm3jl5t3khpb" path="res://Assets/Itens/Sabão.fbx" id="2_imvm7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c3x25"]
-radius = 1.15819
-height = 4.05806
+radius = 0.317235
+height = 1.59355
 
 [node name="Soap" type="Area3D" groups=["SoapItem"]]
 script = ExtResource("1_iboy2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["SoapItem"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.153315, -0.378822, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0732396, -0.185118, -0.0489829)
 shape = SubResource("CapsuleShape3D_c3x25")
 
 [node name="Sabão" parent="." instance=ExtResource("2_imvm7")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
