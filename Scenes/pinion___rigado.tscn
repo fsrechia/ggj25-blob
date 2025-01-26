@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvo45vs5cm2lm"]
-
-[ext_resource type="PackedScene" uid="uid://dbbkxeyv08288" path="res://Assets/Enemy/Pinion - Rigado.glb" id="1_1k6s7"]
-
-[node name="Pinion - Rigado" instance=ExtResource("1_1k6s7")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
