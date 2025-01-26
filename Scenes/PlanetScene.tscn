@@ -121,6 +121,25 @@ directional_shadow_pancake_size = 0.5
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Light3D"]
 environment = ExtResource("5_5kygm")
 
+[node name="Light3D2" type="Node" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="Light3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.454285, -97.3128, -0.860413)
+light_energy = 1.2
+light_indirect_energy = 7.2
+light_volumetric_fog_energy = 6.0
+shadow_enabled = true
+shadow_normal_bias = 3.375
+shadow_opacity = 0.37
+shadow_blur = 10.0
+directional_shadow_blend_splits = true
+directional_shadow_pancake_size = 0.5
+
+[node name="LightmapGI" type="LightmapGI" parent="Light3D2"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Light3D2"]
+environment = ExtResource("5_5kygm")
+
 [node name="AtmosphericBubble" type="MeshInstance3D" parent="."]
 transform = Transform3D(110, 0, 0, 0, 110, 0, 0, 0, 110, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_4f7cl")
