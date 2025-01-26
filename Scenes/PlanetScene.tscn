@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=20 format=3 uid="uid://bppn1jo6uahww"]
 
+[ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
 [ext_resource type="PackedScene" uid="uid://coqp6023uuofy" path="res://Assets/Planet/Planeta 3.glb" id="2_yn5ct"]
 [ext_resource type="Script" path="res://Forces/PointGravity.gd" id="3_k6k61"]
@@ -41,6 +42,7 @@ stream_3/volume = -60.0
 stream_4/volume = 0.0
 
 [node name="Node3D2" type="Node3D"]
+script = ExtResource("1_67bi2")
 
 [node name="Planet" type="StaticBody3D" parent="."]
 
@@ -127,3 +129,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.9795
 stream = SubResource("AudioStreamSynchronized_186sn")
 autoplay = true
 script = ExtResource("11_mb7kq")
+
+[node name="TimeRemaining" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
