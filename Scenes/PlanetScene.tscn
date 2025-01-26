@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=18 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
 [ext_resource type="PackedScene" uid="uid://coqp6023uuofy" path="res://Assets/Planet/Planeta 3.glb" id="2_yn5ct"]
@@ -14,6 +14,14 @@
 [ext_resource type="Script" path="res://Scenes/ScriptedAudioStream.gd" id="11_mb7kq"]
 
 [sub_resource type="SphereShape3D" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4f7cl"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.721569, 0.819608, 1, 1)
+metallic = 0.99
+metallic_specular = 0.56
+roughness = 0.23
 
 [sub_resource type="SphereMesh" id="SphereMesh_mcsil"]
 
@@ -70,7 +78,9 @@ shadow_enabled = true
 environment = ExtResource("5_5kygm")
 
 [node name="AtmosphericBubble" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.9294, -3.82828)
+transform = Transform3D(110, 0, 0, 0, 110, 0, 0, 0, 110, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_4f7cl")
+transparency = 0.6
 mesh = SubResource("SphereMesh_mcsil")
 script = ExtResource("6_xcch3")
 
