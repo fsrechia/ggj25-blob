@@ -12,7 +12,7 @@ extends CharacterBody3D
 @onready var _balance_point: BalancePoint = $BalancePoint
 @onready var _camera_anchor: CameraAnchor = $CameraAnchor
 
-static var rng: RandomNumberGenerator = Autoloader.rng
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 var has_water := false
 var has_oxygen_cylinder := false
@@ -20,10 +20,10 @@ var has_soap := false
 
 
 
-static func get_random_movement_input() -> Vector2:
+func get_random_movement_input() -> Vector2:
 	var vector := Vector2(
-		rng.randf_range(0.0, 1.0),
-		rng.randf_range(0.0, 1.0)
+		rng.randf_range(-1.0, -0.2),
+		rng.randf_range(-1.0, 1.0)
 	)
 	if vector.length_squared() > 1:
 		return vector.normalized()  # e.g. keyboard input
@@ -63,17 +63,24 @@ func _physics_process(delta: float) -> void:
 		_balance_point.up,
 		movement_input
 	)
+	#if movement_intention != Vector3.ZERO:
+		#$AnimationTree.set("parameters/movements/transition_request", "walk")
+	#else:
+		#$AnimationTree.set("parameters/movements/transition_request", "idle")
 
 	# How much control does the player get over the character?
 	var current_velocity_control: float
 	var current_torque_control: float
 	if self.is_on_floor():
+		#$AnimationTree.set("parameters/in_air/transition_request", "false")
 		current_velocity_control = velocity_control_floor
 		current_torque_control = torque_control_floor
 	else:
+		# jump animation
+		#$AnimationTree.set("parameters/in_air/transition_request", "true")
 		current_velocity_control = velocity_control_air
 		current_torque_control = torque_control_air
-	
+
 	# Jumping
 	self._process_jumping()
 	

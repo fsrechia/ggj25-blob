@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://gb7eu8q3lmaa" path="res://Assets/Enemy/Pinion Idle.glb" id="1_vf7cj"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="2_0352b"]
-[ext_resource type="PackedScene" uid="uid://dj124py8208l0" path="res://Assets/Enemy/PinionAnimado.glb" id="3_f4fg6"]
+[ext_resource type="PackedScene" uid="uid://bt88xp6ve6obg" path="res://Assets/Enemy/PinionAnimado.glb" id="3_f4fg6"]
 [ext_resource type="Script" path="res://Forces/BalancePoint.gd" id="3_yv1rw"]
 [ext_resource type="Script" path="res://Camera/CameraAnchor.gd" id="4_5l1me"]
 [ext_resource type="Script" path="res://Camera/CameraJoint.gd" id="5_vf030"]

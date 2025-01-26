@@ -9,6 +9,8 @@ enum SongState {
 
 const TIME_TO_DISASTER = 60.0
 
+var bubble_growing :bool = false
+
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.

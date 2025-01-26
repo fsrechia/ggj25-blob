@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy24incxe0cqy"]
+
+[ext_resource type="PackedScene" uid="uid://cc6q1vkco3w2n" path="res://Assets/Enemy/VolareAnimado.glb" id="1_7nf36"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="2_3wvno"]
+[ext_resource type="Script" path="res://Forces/BalancePoint.gd" id="2_oby2r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n5p7l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jagcu"]
+radius = 0.15
+height = 0.3
+
+[node name="VolareAnimado" instance=ExtResource("1_7nf36")]
+script = ExtResource("2_3wvno")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, -0.956639)
+shape = SubResource("CapsuleShape3D_n5p7l")
+
+[node name="BalancePoint" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51382, -1.05471)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_oby2r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalancePoint" index="0"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_jagcu")
+
+[connection signal="area_entered" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_entered"]
+[connection signal="area_exited" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_exited"]

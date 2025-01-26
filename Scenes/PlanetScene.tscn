@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=23 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -14,6 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://bpmlmoqks6b5c" path="res://Assets/Audio/space-bubble-theme-tense-orchtrap.wav" id="10_hhjdc"]
 [ext_resource type="Script" path="res://Scenes/ScriptedAudioStream.gd" id="11_mb7kq"]
 [ext_resource type="PackedScene" uid="uid://c6ih3pn7cktny" path="res://Player/AnimatedPlayer3.tscn" id="14_x40ld"]
+[ext_resource type="PackedScene" uid="uid://b4uxw0mu4e7wi" path="res://Scenes/Enemy_Aquae.tscn" id="15_0c8hm"]
+[ext_resource type="PackedScene" uid="uid://cy24incxe0cqy" path="res://Scenes/Enemy_Volare.tscn" id="16_ww06r"]
+[ext_resource type="PackedScene" uid="uid://dqf5yr1syejnq" path="res://Scenes/Enemy_Pinion.tscn" id="17_a8vkd"]
 
 [sub_resource type="SphereShape3D" id="2"]
 
@@ -137,5 +140,14 @@ script = ExtResource("11_mb7kq")
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="AquaeAnimado" parent="." instance=ExtResource("14_x40ld")]
+[node name="AquaePlayer" parent="." instance=ExtResource("14_x40ld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.2678, 0)
+
+[node name="AquaeEnemy" parent="." instance=ExtResource("15_0c8hm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8679, 49.2081, 0)
+
+[node name="VolareAnimado" parent="." instance=ExtResource("16_ww06r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.533, 46.6306, 11.6842)
+
+[node name="Pinion" parent="." instance=ExtResource("17_a8vkd")]
+transform = Transform3D(0.343233, -0.93925, 0, 0.93925, 0.343233, 0, 0, 0, 1, -41.5104, 23.0442, 7.78782)

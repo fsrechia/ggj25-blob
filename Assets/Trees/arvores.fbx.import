@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bt88xp6ve6obg"
-path="res://.godot/imported/PinionAnimado.glb-dfc6686b18c6bf1d92a42d078ef80808.scn"
+uid="uid://c3klq1vfuaw5u"
+path="res://.godot/imported/arvores.fbx-bcdc8fcf641f548df0ea87d331694f25.scn"
 
 [deps]
 
-source_file="res://Assets/Enemy/PinionAnimado.glb"
-dest_files=["res://.godot/imported/PinionAnimado.glb-dfc6686b18c6bf1d92a42d078ef80808.scn"]
+source_file="res://Assets/Trees/arvores.fbx"
+dest_files=["res://.godot/imported/arvores.fbx-bcdc8fcf641f548df0ea87d331694f25.scn"]
 
 [params]
 
@@ -27,10 +27,11 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

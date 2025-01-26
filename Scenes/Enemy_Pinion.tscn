@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqf5yr1syejnq"]
+
+[ext_resource type="PackedScene" uid="uid://dg1lexmmjyt34" path="res://Assets/Enemy/Pinion.glb" id="1_q1yej"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="2_37s3x"]
+[ext_resource type="Script" path="res://Forces/BalancePoint.gd" id="3_egm6w"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pc1qw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_22mno"]
+radius = 0.15
+height = 0.3
+
+[node name="Pinion" instance=ExtResource("1_q1yej")]
+script = ExtResource("2_37s3x")
+
+[node name="Pinion" parent="." index="0"]
+transform = Transform3D(1, -1.06577e-16, -2.72495e-17, 1.06577e-16, 0.877279, 0.47998, -2.72495e-17, -0.47998, 0.877279, 0, 2.16692, -0.933788)
+
+[node name="Skeleton3D" parent="Pinion" index="0"]
+bones/0/position = Vector3(0, -0.438066, 0.842076)
+bones/0/rotation = Quaternion(0.14596, 1.17933e-07, 1.73997e-08, 0.989291)
+bones/1/rotation = Quaternion(0.02586, 3.31797e-14, 6.16551e-09, 0.999666)
+bones/2/position = Vector3(-2.65255e-14, -0.438066, 0.842076)
+bones/2/rotation = Quaternion(-1.90435e-07, -0.201537, 0.979481, 3.78958e-08)
+bones/3/position = Vector3(0.946814, -1.60936, -0.17008)
+bones/3/rotation = Quaternion(0.00581361, -0.463669, 0.885643, 0.0247627)
+bones/4/rotation = Quaternion(0.806515, 1.72986e-08, -0.00232334, 0.59121)
+bones/5/rotation = Quaternion(0.123545, 8.96744e-09, -0.00674619, 0.992316)
+bones/6/position = Vector3(-0.946814, -1.60936, -0.17008)
+bones/6/rotation = Quaternion(-0.00581361, -0.463669, 0.885643, -0.0247627)
+bones/7/rotation = Quaternion(0.806515, -1.7696e-08, 0.00232334, 0.59121)
+bones/8/rotation = Quaternion(0.123545, -9.55448e-09, 0.00674619, 0.992316)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, -0.956639)
+shape = SubResource("CapsuleShape3D_pc1qw")
+
+[node name="BalancePoint" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51382, -1.05471)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_egm6w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalancePoint" index="0"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_22mno")
+
+[connection signal="area_entered" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_entered"]
+[connection signal="area_exited" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_exited"]
