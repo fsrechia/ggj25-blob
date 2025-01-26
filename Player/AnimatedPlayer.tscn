@@ -1,0 +1,76 @@
+[gd_scene load_steps=13 format=3 uid="uid://fn2l653piy6x"]
+
+[ext_resource type="PackedScene" uid="uid://gb7eu8q3lmaa" path="res://Assets/Enemy/Pinion Idle.glb" id="1_vf7cj"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="2_0352b"]
+[ext_resource type="Script" path="res://Forces/BalancePoint.gd" id="3_yv1rw"]
+[ext_resource type="Script" path="res://Camera/CameraAnchor.gd" id="4_5l1me"]
+[ext_resource type="Script" path="res://Camera/CameraJoint.gd" id="5_vf030"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhqdd"]
+
+[sub_resource type="Animation" id="Animation_xeyyt"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_0lobb"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_emoub"]
+_data = {
+"idle": SubResource("Animation_xeyyt"),
+"run": SubResource("Animation_0lobb")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lfm24"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_i1ur3"]
+graph_offset = Vector2(-167.341, 225.895)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lfm24")
+nodes/Animation/position = Vector2(20, 140)
+nodes/output/position = Vector2(300, 160)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkcne"]
+radius = 0.15
+height = 0.3
+
+[node name="PinionCharacterBody3D" instance=ExtResource("1_vf7cj")]
+script = ExtResource("2_0352b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_fhqdd")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.114924, 1.18419e-07, -1.37e-08, 0.993374)
+bones/6/rotation = Quaternion(0.000790074, -0.218783, 0.975442, -0.0254238)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+root_node = NodePath("../BalancePoint/CollisionShape3D")
+libraries = {
+"aef": SubResource("AnimationLibrary_emoub")
+}
+tree_root = SubResource("AnimationNodeBlendTree_i1ur3")
+
+[node name="BalancePoint" type="Area3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51382, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_yv1rw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalancePoint" index="0"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_rkcne")
+
+[node name="CameraAnchor" type="Node3D" parent="." index="5"]
+script = ExtResource("4_5l1me")
+
+[node name="CameraArm" type="SpringArm3D" parent="CameraAnchor" index="0"]
+spring_length = 18.0
+margin = 0.2
+script = ExtResource("5_vf030")
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor/CameraArm" index="0"]
+current = true
+fov = 80.0
+far = 550.0
+
+[connection signal="area_entered" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_entered"]
+[connection signal="area_exited" from="BalancePoint" to="BalancePoint" method="_on_BalancePoint_area_exited"]

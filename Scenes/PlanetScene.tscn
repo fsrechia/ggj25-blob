@@ -1,6 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
+[ext_resource type="PackedScene" uid="uid://coqp6023uuofy" path="res://Assets/Planet/Planeta 3.glb" id="2_yn5ct"]
 [ext_resource type="Script" path="res://Forces/PointGravity.gd" id="3_k6k61"]
 [ext_resource type="Script" path="res://Forces/GravityFalloffModelShifted.gd" id="4_rc4l4"]
 [ext_resource type="Environment" uid="uid://dx1vxt3e1e0rc" path="res://Camera/EmptySpace.tres" id="5_5kygm"]
@@ -12,9 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://bpmlmoqks6b5c" path="res://Assets/Audio/space-bubble-theme-tense-orchtrap.wav" id="10_hhjdc"]
 [ext_resource type="Script" path="res://Scenes/ScriptedAudioStream.gd" id="11_mb7kq"]
 
-[sub_resource type="SphereShape3D" id="3"]
-radius = 50.0
-
 [sub_resource type="SphereShape3D" id="2"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_mcsil"]
@@ -22,28 +20,30 @@ radius = 50.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_sh315"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_186sn"]
-stream_count = 4
+stream_count = 5
 stream_0/stream = ExtResource("7_rsok5")
-stream_0/volume = -60.0
+stream_0/volume = 0.0
 stream_1/stream = ExtResource("8_n7rh4")
-stream_1/volume = -10.96
+stream_1/volume = -60.0
 stream_2/stream = ExtResource("9_0to2v")
-stream_2/volume = -10.33
+stream_2/volume = -60.0
 stream_3/stream = ExtResource("10_hhjdc")
 stream_3/volume = -60.0
+stream_4/volume = 0.0
 
 [node name="Node3D2" type="Node3D"]
 
 [node name="Planet" type="StaticBody3D" parent="."]
 
 [node name="Mesh" type="CSGSphere3D" parent="Planet"]
+visible = false
 radius = 50.0
 radial_segments = 70
 rings = 70
 material = ExtResource("2_3e4hk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet"]
-shape = SubResource("3")
+[node name="Planeta 3" parent="Planet" instance=ExtResource("2_yn5ct")]
+transform = Transform3D(42, 0, 0, 0, 42, 0, 0, 0, 42, 0, 0, 0)
 
 [node name="GravityWell" type="Area3D" parent="Planet"]
 collision_layer = 2
