@@ -1,26 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://bikm0wbdryvtp"]
+[gd_scene load_steps=8 format=3 uid="uid://bikm0wbdryvtp"]
 
+[ext_resource type="Texture2D" uid="uid://dcoi5ji0omq1j" path="res://Assets/Logo/Concept Logo.png" id="1_dhy7s"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_hvpa1"]
 [ext_resource type="AudioStream" uid="uid://nj3i1h4maooy" path="res://Assets/Audio/space-bubble-menu.wav" id="1_jkgi1"]
+[ext_resource type="Texture2D" uid="uid://dh6aejsj3cjg1" path="res://Assets/Menu/Bot_400x120_Play.png" id="4_rmrdp"]
+[ext_resource type="Script" path="res://Scripts/ButtonAutoFocus.gd" id="5_bu62k"]
+[ext_resource type="Texture2D" uid="uid://cen0xypuxxlsv" path="res://Assets/Menu/Bot_400x120_Credits.png" id="5_fyjs1"]
+[ext_resource type="Texture2D" uid="uid://cubwfrxrqo3lh" path="res://Assets/Menu/Bot_400x120_Exit.png" id="6_aivtf"]
 
 [node name="Menu" type="Node"]
+script = ExtResource("1_hvpa1")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 488.0
+offset_top = 5.0
+offset_right = 1985.0
+offset_bottom = 1547.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_dhy7s")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Start" type="Label" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Start
-"
-
-[node name="Quit" type="Label" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Quit
-"
+offset_left = 2.0
+offset_right = 1152.0
+offset_bottom = 646.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_jkgi1")
 autoplay = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 91.0
+offset_top = 26.0
+offset_right = 499.0
+offset_bottom = 590.0
+alignment = 1
+
+[node name="PLAY" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_rmrdp")
+script = ExtResource("5_bu62k")
+
+[node name="CREDITS" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("5_fyjs1")
+
+[node name="QUIT" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("6_aivtf")
+
+[connection signal="pressed" from="VBoxContainer/PLAY" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/CREDITS" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/QUIT" to="." method="_on_quit_pressed"]
