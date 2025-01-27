@@ -1,0 +1,15 @@
+[Arts]
+Bianca Rodrigues
+Diego Costa
+Marcos Poncio
+
+[Programming]
+Felipe Rechia
+Gustavo B Heimovski
+
+[Musics]
+Afonso Rocha Rekbaim
+Gabe Antunes Baran
+
+[Story and Jack of All Trades]
+Vinícius Lima Figueiredo
