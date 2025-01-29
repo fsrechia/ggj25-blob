@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@export var speed := 12.0
-@export var jump_strength := 8.0
+@export var speed := 14.0
+@export var jump_strength := 10.0
 
 @export var velocity_control_floor := 50.0
 @export var velocity_control_air := 5.0
@@ -132,7 +132,7 @@ func _process_turning(movement_intention: Vector3, control: float):
 	
 	var look_intention_horizontal: Vector3
 	if movement_intention != Vector3.ZERO:
-		look_intention_horizontal = movement_intention
+		look_intention_horizontal = Vector3(-movement_intention.x, movement_intention.y, -movement_intention.z)
 	else:
 		# If the player provides no input, we want to turn forward, parallel to the floor.
 		look_intention_horizontal = forward - forward.project(up)

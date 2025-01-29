@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://efnnvt4dlh60"
-path.s3tc="res://.godot/imported/ANIM_atman_correndo_model_model_file3-model_model_file4.png-7a9fac12209d4942957548eb908c3808.s3tc.ctex"
+uid="uid://dcxjpei5f6ltm"
+path.s3tc="res://.godot/imported/ANIM_atman_todos_MAT_atman_BaseColor.png-05120200baa871a2ec0c6dee7b502357.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "7005f552aa7a25cd89207e5d9abbf06a"
+"md5": "1718f19c21912c55a2c6b966731a45a6"
 }
 
 [deps]
 
-source_file="res://Assets/Player/ANIM_atman_correndo_model_model_file3-model_model_file4.png"
-dest_files=["res://.godot/imported/ANIM_atman_correndo_model_model_file3-model_model_file4.png-7a9fac12209d4942957548eb908c3808.s3tc.ctex"]
+source_file="res://Assets/Player/ANIM_atman_todos_MAT_atman_BaseColor.png"
+dest_files=["res://.godot/imported/ANIM_atman_todos_MAT_atman_BaseColor.png-05120200baa871a2ec0c6dee7b502357.s3tc.ctex"]
 
 [params]
 

@@ -13,13 +13,13 @@
 [ext_resource type="AudioStream" uid="uid://3auo2ux28qa6" path="res://Assets/Audio/space-bubble-theme-tense-orch.wav" id="9_0to2v"]
 [ext_resource type="AudioStream" uid="uid://bpmlmoqks6b5c" path="res://Assets/Audio/space-bubble-theme-tense-orchtrap.wav" id="10_hhjdc"]
 [ext_resource type="Script" path="res://Scenes/ScriptedAudioStream.gd" id="11_mb7kq"]
-[ext_resource type="PackedScene" uid="uid://c6ih3pn7cktny" path="res://Player/AnimatedPlayer3.tscn" id="14_x40ld"]
 [ext_resource type="PackedScene" uid="uid://b4uxw0mu4e7wi" path="res://Scenes/Enemy_Aquae.tscn" id="15_0c8hm"]
 [ext_resource type="PackedScene" uid="uid://cy24incxe0cqy" path="res://Scenes/Enemy_Volare.tscn" id="16_ww06r"]
 [ext_resource type="PackedScene" uid="uid://dqf5yr1syejnq" path="res://Scenes/Enemy_Pinion.tscn" id="17_a8vkd"]
 [ext_resource type="PackedScene" uid="uid://cb7elhh3qlg6d" path="res://Scenes/Machine.tscn" id="18_vir7n"]
 [ext_resource type="PackedScene" uid="uid://dwlp57hf1prxp" path="res://Scenes/Prefabs/Soap.tscn" id="19_pc0h8"]
 [ext_resource type="PackedScene" uid="uid://dwnv17pebasdn" path="res://Scenes/Prefabs/Water.tscn" id="20_2to41"]
+[ext_resource type="PackedScene" uid="uid://b8ufqsccblyw7" path="res://Player/AtmanPlayer.tscn" id="21_4s78l"]
 [ext_resource type="PackedScene" uid="uid://dw5xxbvfeewwt" path="res://Scenes/Prefabs/OxygenCylinder.tscn" id="21_ky8ul"]
 
 [sub_resource type="SphereShape3D" id="2"]
@@ -144,9 +144,6 @@ script = ExtResource("11_mb7kq")
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="AquaePlayer" parent="." instance=ExtResource("14_x40ld")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.2678, 0)
-
 [node name="AquaeEnemy" parent="." instance=ExtResource("15_0c8hm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8679, 49.2081, 0)
 
@@ -167,3 +164,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2811, 30.2958, -34.6363)
 
 [node name="OxygenCylinder" parent="." instance=ExtResource("21_ky8ul")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2719, 18.7352, -25.4758)
+
+[node name="ANIM_atman_todos" parent="." instance=ExtResource("21_4s78l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5663, 53.4774, 2.694)
