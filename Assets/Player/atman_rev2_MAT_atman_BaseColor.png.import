@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o5vgxtflnji"
-path.s3tc="res://.godot/imported/Arvore Folha.png-ec9efe0658796c40e3c75306b037bd20.s3tc.ctex"
+uid="uid://beeppddtrb0a2"
+path.s3tc="res://.godot/imported/atman_rev2_MAT_atman_BaseColor.png-3f896b0e8249276afa3ebe7f1a2370ba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "1718f19c21912c55a2c6b966731a45a6"
+}
 
 [deps]
 
-source_file="res://Materials/Arvore Folha.png"
-dest_files=["res://.godot/imported/Arvore Folha.png-ec9efe0658796c40e3c75306b037bd20.s3tc.ctex"]
+source_file="res://Assets/Player/atman_rev2_MAT_atman_BaseColor.png"
+dest_files=["res://.godot/imported/atman_rev2_MAT_atman_BaseColor.png-3f896b0e8249276afa3ebe7f1a2370ba.s3tc.ctex"]
 
 [params]
 
