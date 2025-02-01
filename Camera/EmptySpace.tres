@@ -1,9 +1,9 @@
 [gd_resource type="Environment" load_steps=4 format=3 uid="uid://dx1vxt3e1e0rc"]
 
-[ext_resource type="Texture2D" uid="uid://cipawrntfju4b" path="res://Assets/Planet/starmap_2020_4k.exr" id="1_0khaa"]
+[ext_resource type="Texture2D" uid="uid://cktirewg1iwq5" path="res://Assets/Planet/CEU_noite_emissivo.png" id="1_buch0"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jvwhs"]
-panorama = ExtResource("1_0khaa")
+panorama = ExtResource("1_buch0")
 
 [sub_resource type="Sky" id="1"]
 sky_material = SubResource("PanoramaSkyMaterial_jvwhs")
