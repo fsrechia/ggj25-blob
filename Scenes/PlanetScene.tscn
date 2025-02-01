@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=30 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -20,7 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://dwlp57hf1prxp" path="res://Scenes/Prefabs/Soap.tscn" id="19_pc0h8"]
 [ext_resource type="PackedScene" uid="uid://dwnv17pebasdn" path="res://Scenes/Prefabs/Water.tscn" id="20_2to41"]
 [ext_resource type="PackedScene" uid="uid://dw5xxbvfeewwt" path="res://Scenes/Prefabs/OxygenCylinder.tscn" id="21_ky8ul"]
+[ext_resource type="Script" path="res://Scripts/instancer.gd" id="22_74n8b"]
 [ext_resource type="PackedScene" uid="uid://c0df7i5oapcrj" path="res://Player/AtmanPlayer.tscn" id="22_f6s7q"]
+[ext_resource type="ArrayMesh" uid="uid://c8cob4761yyxe" path="res://Assets/Trees/GEO_arvore_mesh.res" id="24_imgn8"]
+[ext_resource type="Texture2D" uid="uid://dcgh1hbm66yij" path="res://Assets/Trees/blank_heightmap.png" id="24_juh5n"]
 
 [sub_resource type="SphereShape3D" id="2"]
 
@@ -167,3 +170,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2719, 18.7352, -25.4758)
 
 [node name="AtmanPlayer" parent="." instance=ExtResource("22_f6s7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60428, 54.976, -0.261272)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+skeleton = NodePath("../Instancer")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+
+[node name="GeoArvoreMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63766, 45.1725, 11.4607)
+mesh = ExtResource("24_imgn8")
+
+[node name="GeoArvoreMesh2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7755, 46.2662, 10.5325)
+mesh = ExtResource("24_imgn8")
+
+[node name="Instancer" type="Node3D" parent="." node_paths=PackedStringArray("player_node")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
+script = ExtResource("22_74n8b")
+player_node = NodePath("../AtmanPlayer")
+instance_amount = 5
+ground_chunk_mesh = NodePath("../Planet/Planeta 3")
+heightmap = ExtResource("24_juh5n")
+instance_mesh = ExtResource("24_imgn8")
