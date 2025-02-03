@@ -19,10 +19,6 @@ extends Node3D
 @export var rot_y_randomize : float = 0.0  # Amount of randomization for Y rotation 
 @export var rot_x_randomize : float = 0.0  # Amount of randomization for X rotation 
 @export var rot_z_randomize : float = 0.0  # Amount of randomization for Z rotation 
-@export var heightmap : Texture2D
-@onready var hmap_img
-@onready var width: int
-@onready var height: int
 @export var instance_mesh : Mesh   # Mesh resource for each instance
 @export var instance_collision : Shape3D
 @export var update_frequency: float = 0.01
@@ -62,9 +58,9 @@ func create_multimesh():
 	
 	#wait for map to load before continuing
 	#await heightmap.changed
-	hmap_img = heightmap.get_image()
-	width = hmap_img.get_width()
-	height = hmap_img.get_height()
+	#hmap_img = heightmap.get_image()
+	#width = hmap_img.get_width()
+	#height = hmap_img.get_height()
 	print("heightmap loaded")
 	# Add the MultiMeshInstance3D as a child of the instancer
 	add_child(multi_mesh_instance)
@@ -85,55 +81,100 @@ func _update():
 	timer.wait_time = update_frequency
 	timer.start()
 
+func get_random_point_on_sphere(radius : float):
+	var phi = randf_range(0, TAU) # Azimuthal angle (around the "equator")
+	var theta = acos(randf_range(-1, 1)) # Polar angle (from "pole" to "pole")
+
+	var x = radius * sin(theta) * cos(phi)
+	var y = radius * sin(theta) * sin(phi)
+	var z = radius * cos(theta)
+
+	return Vector3(x, y, z)
+	
+func raycast_down_to_surface_point(external_point : Vector3, node: Node3D) -> Vector3:
+	print("raycasting to node: ", node)
+	var sphere_center = node.global_transform.origin
+	var space_state = get_world_3d().direct_space_state
+	print("raycasting from ", external_point, " to ", sphere_center)
+	var query = PhysicsRayQueryParameters3D.create(external_point, sphere_center) # Extend ray far enough
+	var result = space_state.intersect_ray(query)
+	# 5. Check for Collision and Get Point
+	if result:
+		#if result.collider == node: # check if the collision is with the desired sphere.
+			var collision_point = result.position
+			print("result: ", result)
+			print("Collision Point: ", collision_point)
+			# Do something with the collision point, e.g., visualize it.
+			# Example: create a marker at the collision point
+			return collision_point
+		#else:
+			#print("Raycast hit something else")
+			#print("result: ", result)
+			#return Vector3.ZERO
+	else:
+		print("No collision")
+		return Vector3.ZERO
+	
+func align_mesh_y_to_vector(t: Transform3D, target_vector: Vector3):
+	# 1. Handle zero-length target vector:
+	if target_vector.length_squared() == 0:
+		print("Warning: Target vector is zero length. Cannot align.")
+		return
+
+	# 2. Calculate the rotation needed:
+	#var current_y = t.basis.y.normalized()  # Current Y axis of the mesh
+	#var rotation_quat = current_y.get_rotation_to(target_vector.normalized())
+	#var axis = current_y.cross(target_vector).normalized()  # Find the rotation axis
+	#var angle = acos(current_y.dot(target_vector))        # Find the rotation angle
+	#var rotation_quat = Quaternion(axis, angle) # Create the quaternion
+
+	var n1norm = t.basis.y.normalized()
+	var n2norm = target_vector.normalized()
+	var cosa = n1norm.dot(n2norm)
+	var alpha = acos(cosa)
+	var axis = n1norm.cross(n2norm)
+	axis = axis.normalized()
+
+	t = t.rotated(axis, alpha)
+
+	# 3. Apply the rotation to the mesh instance:
+	# There are a couple of ways to do this, depending on your desired behavior:
+
+	# A. Replace the entire rotation:
+	# This is the simplest approach and will completely reorient the mesh.
+	# t.basis = Basis(rotation_quat) * t.basis.scaled(t.basis.get_scale())
+	# This approach ensures that any scaling is preserved.
+	return
+	
+
  
 func distribute_meshes():
 	print("distribute meshes called")
 	randomize()
+	var planet = get_node(ground_chunk_mesh)
+	var outer_radius = 2 * planet.scale.x
 	for i in range(instance_amount):
-		# Generate positions on X and Z axes    
-		var pos = global_position
-		pos.z = i;
-		pos.x = (int(pos.z) % instance_rows);
-		pos.z = int((pos.z - pos.x) / instance_rows);
- 
-		#center this
-		pos.x -= offset/2
-		pos.z -= offset/2
- 
-		#apply spacing (snap to integer to keep instances in place)
-		pos *= instance_spacing;
-		pos.x += int(global_position.x) - (int(global_position.x) % instance_spacing);
-		pos.z += int(global_position.z) - (int(global_position.z) % instance_spacing);
+		var outer_point = get_random_point_on_sphere(outer_radius)
 		
-		#add randomization  
-		var x
-		var z
-		pos.x += random(pos.x,pos.z) * pos_randomize
-		pos.z += random(pos.x,pos.z) * pos_randomize
-		pos.x -= pos_randomize * random(pos.x,pos.z)
-		pos.z -= pos_randomize * random(pos.x,pos.z)
+		var surface_point = raycast_down_to_surface_point(outer_point, planet)
+		if surface_point == Vector3.ZERO:
+			print("Raycasting error... aborting this instance")
+			continue
+
+		print("spawning stuff at surface point, ", surface_point)
+
+		var normal_vector = surface_point.normalized()
 		
-		x = pos.x 
-		z = pos.z 
-		
-		# Sample the heightmap texture to determine the Y position
-		var y = get_heightmap_y(x, z)
-		print("spawning stuff at x: %.2f, y: %.2f, z: %.2f" % [x,y,z])
-		var ori = Vector3(x, y, z)
-		var sc = Vector3(   instance_min_scale+scale_randomize * random(x,z) + instance_width,
-							instance_min_scale+scale_randomize * random(x,z) + instance_height,
-							instance_min_scale+scale_randomize * random(x,z)+ instance_width
-							)
- 
-		# Randomize rotations
+		var ori = surface_point
 		var rot = Vector3(0,0,0)
-		rot.x += instance_X_rot + (random(x,z) * rot_x_randomize)
-		rot.y += instance_Y_rot + (random(x,z) * rot_y_randomize)
-		rot.z += instance_Z_rot + (random(x,z) * rot_z_randomize)
+		rot.x += instance_X_rot + (random(ori.x,ori.z) * rot_x_randomize)
+		rot.y += instance_Y_rot + (random(ori.x,ori.z) * rot_y_randomize)
+		rot.z += instance_Z_rot + (random(ori.x,ori.z) * rot_z_randomize)
 		print("spawning stuff with rotation ",rot)
 		var t
 		t = Transform3D()
 		t.origin = ori
+		align_mesh_y_to_vector(t, normal_vector)
 		
 		t = t.rotated_local(t.basis.x.normalized(),rot.x)
 		t = t.rotated_local(t.basis.y.normalized(),rot.y)
@@ -141,7 +182,7 @@ func distribute_meshes():
  
 		
 		# Set the instance data
-		multi_mesh.set_instance_transform(i, t.scaled_local(sc))
+		multi_mesh.set_instance_transform(i, t)
  
 		#Collisions
 		if generate_colliders:
@@ -151,23 +192,10 @@ func distribute_meshes():
 					generate_subset()
 			else:   
 				if !colliders[i] == null:
-					colliders[i].global_transform = t.scaled_local(sc)  
+					colliders[i].global_transform = t
  
 	last_pos = global_position
 	return multi_mesh
- 
-func get_heightmap_y(x, z):
-	# Sample the heightmap texture to get the Y position based on X and Z coordinates
-	var pixel_x = (width / 2) + x / h_scale 
-	var pixel_z = (height / 2) + z / h_scale 
-	
-	if pixel_x > width: pixel_x -= width 
-	if pixel_z > height: pixel_z -= height 
-	if pixel_x < 0: pixel_x += width 
-	if pixel_z < 0: pixel_z += height 
- 
-	var color = hmap_img.get_pixel(pixel_x, pixel_z)
-	return color.r * terrain_height * v_scale
  
 func random(x,z):
 	var r = fposmod(sin(Vector2(x,z).dot(Vector2(12.9898,78.233)) * 43758.5453123),1.0)
