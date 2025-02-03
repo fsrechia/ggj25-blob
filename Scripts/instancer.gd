@@ -65,22 +65,10 @@ func create_multimesh():
 	# Add the MultiMeshInstance3D as a child of the instancer
 	add_child(multi_mesh_instance)
 	
-	#Add timer for updates
-	timer = Timer.new()
-	$"..".add_child(timer)
-	timer.timeout.connect(_update)
-	timer.wait_time = update_frequency 
-	_update()
-	print("instancer startup done")
- 
-func _update():
-	#on each update, move the center to player
-	print("updating")
 	self.global_position = Vector3(player_node.global_position.x,0.0,player_node.global_position.z).snapped(Vector3(1,0,1));
 	multi_mesh_instance.multimesh = distribute_meshes()
-	timer.wait_time = update_frequency
-	timer.start()
-
+	print("instancer startup done")
+ 
 func get_random_point_on_sphere(radius : float):
 	var phi = randf_range(0, TAU) # Azimuthal angle (around the "equator")
 	var theta = acos(randf_range(-1, 1)) # Polar angle (from "pole" to "pole")
@@ -92,18 +80,18 @@ func get_random_point_on_sphere(radius : float):
 	return Vector3(x, y, z)
 	
 func raycast_down_to_surface_point(external_point : Vector3, node: Node3D) -> Vector3:
-	print("raycasting to node: ", node)
+	#print("raycasting to node: ", node)
 	var sphere_center = node.global_transform.origin
 	var space_state = get_world_3d().direct_space_state
-	print("raycasting from ", external_point, " to ", sphere_center)
+	#print("raycasting from ", external_point, " to ", sphere_center)
 	var query = PhysicsRayQueryParameters3D.create(external_point, sphere_center) # Extend ray far enough
 	var result = space_state.intersect_ray(query)
 	# 5. Check for Collision and Get Point
 	if result:
 		#if result.collider == node: # check if the collision is with the desired sphere.
 			var collision_point = result.position
-			print("result: ", result)
-			print("Collision Point: ", collision_point)
+			#print("result: ", result)
+			#print("Collision Point: ", collision_point)
 			# Do something with the collision point, e.g., visualize it.
 			# Example: create a marker at the collision point
 			return collision_point
@@ -121,13 +109,6 @@ func align_mesh_y_to_vector(t: Transform3D, target_vector: Vector3):
 		print("Warning: Target vector is zero length. Cannot align.")
 		return
 
-	# 2. Calculate the rotation needed:
-	#var current_y = t.basis.y.normalized()  # Current Y axis of the mesh
-	#var rotation_quat = current_y.get_rotation_to(target_vector.normalized())
-	#var axis = current_y.cross(target_vector).normalized()  # Find the rotation axis
-	#var angle = acos(current_y.dot(target_vector))        # Find the rotation angle
-	#var rotation_quat = Quaternion(axis, angle) # Create the quaternion
-
 	var n1norm = t.basis.y.normalized()
 	var n2norm = target_vector.normalized()
 	var cosa = n1norm.dot(n2norm)
@@ -135,16 +116,7 @@ func align_mesh_y_to_vector(t: Transform3D, target_vector: Vector3):
 	var axis = n1norm.cross(n2norm)
 	axis = axis.normalized()
 
-	t = t.rotated(axis, alpha)
-
-	# 3. Apply the rotation to the mesh instance:
-	# There are a couple of ways to do this, depending on your desired behavior:
-
-	# A. Replace the entire rotation:
-	# This is the simplest approach and will completely reorient the mesh.
-	# t.basis = Basis(rotation_quat) * t.basis.scaled(t.basis.get_scale())
-	# This approach ensures that any scaling is preserved.
-	return
+	return t.rotated_local(axis, alpha)
 	
 
  
@@ -152,7 +124,7 @@ func distribute_meshes():
 	print("distribute meshes called")
 	randomize()
 	var planet = get_node(ground_chunk_mesh)
-	var outer_radius = 2 * planet.scale.x
+	var outer_radius = 5 * planet.scale.x
 	for i in range(instance_amount):
 		var outer_point = get_random_point_on_sphere(outer_radius)
 		
@@ -164,6 +136,8 @@ func distribute_meshes():
 		print("spawning stuff at surface point, ", surface_point)
 
 		var normal_vector = surface_point.normalized()
+		# account for half the size of assets before placing on surface (trees were stuffed inside the planet, for some reason)
+		surface_point = raycast_down_to_surface_point(outer_point, planet) + (instance_mesh.get_aabb().size/2 * normal_vector)
 		
 		var ori = surface_point
 		var rot = Vector3(0,0,0)
@@ -174,11 +148,13 @@ func distribute_meshes():
 		var t
 		t = Transform3D()
 		t.origin = ori
-		align_mesh_y_to_vector(t, normal_vector)
+		print("original transform: ", t)
+		t = align_mesh_y_to_vector(t, normal_vector)
+		print("aligned transform: ", t)
 		
-		t = t.rotated_local(t.basis.x.normalized(),rot.x)
-		t = t.rotated_local(t.basis.y.normalized(),rot.y)
-		t = t.rotated_local(t.basis.z.normalized(),rot.z)
+		#t = t.rotated_local(t.basis.x.normalized(),rot.x)
+		#t = t.rotated_local(t.basis.y.normalized(),rot.y)
+		#t = t.rotated_local(t.basis.z.normalized(),rot.z)
  
 		
 		# Set the instance data
