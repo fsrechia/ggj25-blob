@@ -184,14 +184,23 @@ mesh = ExtResource("24_imgn8")
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 0, 0)
 script = ExtResource("22_74n8b")
 player_node = NodePath("../atmanPlayer")
+instance_amount = 500
 ground_chunk_mesh = NodePath("../Planet/Planeta 3")
+scale_randomize = 2.381
+rot_y_randomize = 360.0
+rot_x_randomize = 10.0
+rot_z_randomize = 10.0
 instance_mesh = ExtResource("24_imgn8")
 
 [node name="Instancer_bushes" type="Node3D" parent="." node_paths=PackedStringArray("player_node")]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 0, 0)
 script = ExtResource("22_74n8b")
 player_node = NodePath("../atmanPlayer")
+instance_amount = 600
 ground_chunk_mesh = NodePath("../Planet/Planeta 3")
+rot_y_randomize = 360.0
+rot_x_randomize = 5.0
+rot_z_randomize = 5.0
 instance_mesh = ExtResource("24_4qu21")
 
 [node name="Instancer_cacti" type="Node3D" parent="." node_paths=PackedStringArray("player_node")]
@@ -199,4 +208,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 0, 0)
 script = ExtResource("22_74n8b")
 player_node = NodePath("../atmanPlayer")
 ground_chunk_mesh = NodePath("../Planet/Planeta 3")
+rot_y_randomize = 360.0
+rot_x_randomize = 5.0
+rot_z_randomize = 5.0
 instance_mesh = ExtResource("25_77uh1")

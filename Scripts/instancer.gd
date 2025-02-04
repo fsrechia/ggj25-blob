@@ -133,29 +133,34 @@ func distribute_meshes():
 			print("Raycasting error... aborting this instance")
 			continue
 
-		print("spawning stuff at surface point, ", surface_point)
+		#print("spawning stuff at surface point, ", surface_point)
 
 		var normal_vector = surface_point.normalized()
 		# account for half the size of assets before placing on surface (trees were stuffed inside the planet, for some reason)
 		surface_point = raycast_down_to_surface_point(outer_point, planet) + (instance_mesh.get_aabb().size/2 * normal_vector)
 		
-		var ori = surface_point
 		var rot = Vector3(0,0,0)
-		rot.x += instance_X_rot + (random(ori.x,ori.z) * rot_x_randomize)
-		rot.y += instance_Y_rot + (random(ori.x,ori.z) * rot_y_randomize)
-		rot.z += instance_Z_rot + (random(ori.x,ori.z) * rot_z_randomize)
+
+		rot.x += instance_X_rot + (randf() * PI * rot_x_randomize / 180)
+		rot.y += instance_Y_rot + (randf() * PI * rot_y_randomize / 180)
+		rot.z += instance_Z_rot + (randf() * PI * rot_z_randomize / 180)
+		
 		print("spawning stuff with rotation ",rot)
 		var t
 		t = Transform3D()
-		t.origin = ori
-		print("original transform: ", t)
-		t = align_mesh_y_to_vector(t, normal_vector)
-		print("aligned transform: ", t)
+		t.origin = surface_point
+		# print("original transform: ", t)
 		
-		#t = t.rotated_local(t.basis.x.normalized(),rot.x)
-		#t = t.rotated_local(t.basis.y.normalized(),rot.y)
-		#t = t.rotated_local(t.basis.z.normalized(),rot.z)
- 
+		
+		t = align_mesh_y_to_vector(t, normal_vector)
+		# print("aligned transform: ", t)
+		
+		t = t.rotated(normal_vector,rot.x)
+		t = t.rotated(normal_vector,rot.y)
+		t = t.rotated(normal_vector,rot.z)
+		
+		
+		
 		
 		# Set the instance data
 		multi_mesh.set_instance_transform(i, t)
