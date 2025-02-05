@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=32 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2qaycdxyamuh" path="res://Assets/Planet/Planeta 2.glb" id="5_msvbl"]
 [ext_resource type="Script" path="res://Scripts/AtmosphericBubble.gd" id="6_xcch3"]
 [ext_resource type="AudioStream" uid="uid://co0c0uighcuua" path="res://Assets/Audio/space-bubble-theme-chill.wav" id="7_rsok5"]
+[ext_resource type="Texture2D" uid="uid://bs2bdq6qxd8x8" path="res://Materials/Pedra Azul.png" id="8_h2rqk"]
 [ext_resource type="AudioStream" uid="uid://btnv0hfcrf76y" path="res://Assets/Audio/space-bubble-theme-tense-clock.wav" id="8_n7rh4"]
 [ext_resource type="AudioStream" uid="uid://3auo2ux28qa6" path="res://Assets/Audio/space-bubble-theme-tense-orch.wav" id="9_0to2v"]
 [ext_resource type="AudioStream" uid="uid://bpmlmoqks6b5c" path="res://Assets/Audio/space-bubble-theme-tense-orchtrap.wav" id="10_hhjdc"]
@@ -25,6 +26,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c1g6aue7b1j7h" path="res://Assets/Trees/GEO_arbusto_mesh.res" id="24_4qu21"]
 [ext_resource type="ArrayMesh" uid="uid://c8cob4761yyxe" path="res://Assets/Trees/GEO_arvore_mesh.res" id="24_imgn8"]
 [ext_resource type="ArrayMesh" uid="uid://crxl18gf5c4ed" path="res://Assets/Trees/GEO_cacto_mesh.res" id="25_77uh1"]
+[ext_resource type="PackedScene" uid="uid://dhvfpde3l0ol4" path="res://Scenes/Machine2.tscn" id="27_g22t3"]
 
 [sub_resource type="SphereShape3D" id="2"]
 
@@ -32,9 +34,11 @@
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.721569, 0.819608, 1, 1)
-metallic = 0.99
-metallic_specular = 0.56
+albedo_texture = ExtResource("8_h2rqk")
+metallic = 0.84
+metallic_specular = 0.24
 roughness = 0.23
+emission_energy_multiplier = 1.09
 
 [sub_resource type="SphereMesh" id="SphereMesh_mcsil"]
 
@@ -126,7 +130,7 @@ environment = ExtResource("5_5kygm")
 [node name="AtmosphericBubble" type="MeshInstance3D" parent="."]
 transform = Transform3D(110, 0, 0, 0, 110, 0, 0, 0, 110, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_4f7cl")
-transparency = 0.6
+transparency = 0.59
 mesh = SubResource("SphereMesh_mcsil")
 script = ExtResource("6_xcch3")
 
@@ -212,3 +216,6 @@ rot_y_randomize = 360.0
 rot_x_randomize = 5.0
 rot_z_randomize = 5.0
 instance_mesh = ExtResource("25_77uh1")
+
+[node name="ANIM_maquina" parent="." instance=ExtResource("27_g22t3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 37, 9)

@@ -145,7 +145,7 @@ func distribute_meshes():
 		rot.y += instance_Y_rot + (randf() * PI * rot_y_randomize / 180)
 		rot.z += instance_Z_rot + (randf() * PI * rot_z_randomize / 180)
 		
-		print("spawning stuff with rotation ",rot)
+		#print("spawning stuff with rotation ",rot)
 		var t
 		t = Transform3D()
 		t.origin = surface_point
