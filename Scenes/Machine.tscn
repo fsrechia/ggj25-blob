@@ -14,6 +14,7 @@ script = ExtResource("1_mhl8v")
 
 [node name="Message3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394589, 6.14981, 10.149)
+visible = false
 visibility_range_fade_mode = 2
 billboard = 1
 modulate = Color(0.0687983, 0.0687983, 0.0687983, 1)
@@ -27,6 +28,7 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0.164723, 1.64817, 7.67185)
 shape = SubResource("BoxShape3D_b8f3i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100498, -4.76837e-07, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D/StaticBody3D"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.13392, 2.89041, 1.87021)

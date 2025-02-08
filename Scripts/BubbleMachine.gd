@@ -5,27 +5,26 @@ var entered = false
 var items_delivered = 0
 var max_items = 3
 
-
-@onready var message3D = $Message3D
+@onready var player = get_tree().get_first_node_in_group("player")
 @onready var WaterDelivered = $WaterDelivered
 @onready var SoapDelivered = $SoapDelivered
 @onready var CylinderDelivered = $CylinderDelivered
-
+@onready var interaction_area: InteractionArea = $InteractionArea
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	interaction_area.interact = Callable(self, "_activate_machine")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if entered && !activated:
-		message3D.show()
-	else:
-		message3D.hide()
+	#if entered && !activated:
+	#	message3D.show()
+	#else:
+	#	message3D.hide()
 
-	if Input.is_action_just_pressed("interact") && activated:
-		print("Pressed")
+	#if Input.is_action_just_pressed("interact") && activated:
+	#	print("Pressed")
 		#WaterDelivered.show()
 		#var timer : Timer = Timer.new()
 		#add_child(timer)
@@ -34,8 +33,25 @@ func _process(delta: float) -> void:
 		#timer.wait_time = 2.0
 		#timer.timeout.connect(_timer_Timeout)
 		#timer.start()
-		queue_free()
+	pass
 
+func _activate_machine():
+	print("Activate machine")
+	if player.has_water:
+		player.has_water = false
+		#Play some anim/effect
+		items_delivered += 1
+	if player.has_oxygen_cylinder:
+		player.has_oxygen_cylinder = false
+		items_delivered += 1
+		
+	if player.has_soap:
+		player.has_soap = false
+		items_delivered += 1
+		
+	if items_delivered == max_items:
+		print("Activated")
+		activated = true
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
@@ -85,13 +101,13 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			print("Activated")
 			activated = true
 
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	if "Player" in body.name:
-		entered = false
+#func _on_area_3d_body_exited(body: Node3D) -> void:
+#	if "Player" in body.name:
+#		entered = false
 
-func _timer_Timeout():
-	WaterDelivered.hide()
-func _timer2_Timeout():
-	CylinderDelivered.hide()
-func _timer3_Timeout():
-	SoapDelivered.hide()
+#func _timer_Timeout():
+#	WaterDelivered.hide()
+#func _timer2_Timeout():
+#	CylinderDelivered.hide()
+#func _timer3_Timeout():
+#	SoapDelivered.hide()

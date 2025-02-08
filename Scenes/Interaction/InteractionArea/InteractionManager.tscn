@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b26s2o3ikyblc"]
+
+[ext_resource type="Script" path="res://Scripts/InteractionManager.gd" id="1_dnv45"]
+
+[node name="InteractionManager" type="Node3D"]
+script = ExtResource("1_dnv45")
+
+[node name="Label" type="Label3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+layers = 3
+billboard = 2
+text = "PRESS INTERACT BUTTON"
+font_size = 50

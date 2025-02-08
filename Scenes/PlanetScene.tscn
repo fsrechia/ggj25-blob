@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=31 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://b4uxw0mu4e7wi" path="res://Scenes/Enemy_Aquae.tscn" id="15_0c8hm"]
 [ext_resource type="PackedScene" uid="uid://cy24incxe0cqy" path="res://Scenes/Enemy_Volare.tscn" id="16_ww06r"]
 [ext_resource type="PackedScene" uid="uid://dqf5yr1syejnq" path="res://Scenes/Enemy_Pinion.tscn" id="17_a8vkd"]
-[ext_resource type="PackedScene" uid="uid://cb7elhh3qlg6d" path="res://Scenes/Machine.tscn" id="18_vir7n"]
 [ext_resource type="PackedScene" uid="uid://dwlp57hf1prxp" path="res://Scenes/Prefabs/Soap.tscn" id="19_pc0h8"]
 [ext_resource type="PackedScene" uid="uid://dwnv17pebasdn" path="res://Scenes/Prefabs/Water.tscn" id="20_2to41"]
 [ext_resource type="PackedScene" uid="uid://dw5xxbvfeewwt" path="res://Scenes/Prefabs/OxygenCylinder.tscn" id="21_ky8ul"]
@@ -156,17 +155,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.533, 46.6306, 11.6842)
 [node name="Pinion" parent="." instance=ExtResource("17_a8vkd")]
 transform = Transform3D(0.343233, -0.93925, 0, 0.93925, 0.343233, 0, 0, 0, 1, -41.5104, 23.0442, 7.78782)
 
-[node name="Machine" parent="." instance=ExtResource("18_vir7n")]
-transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 6.36793, 45.706, -7.01762)
-
 [node name="Soap" parent="." instance=ExtResource("19_pc0h8")]
-transform = Transform3D(-0.502155, -0.349007, -0.791224, -0.570714, 0.821149, 0, 0.649713, 0.451562, -0.611527, -39.7995, 23.8102, -6.98294)
+transform = Transform3D(-0.502155, -0.349007, -0.791224, -0.570714, 0.821149, 0, 0.649713, 0.451562, -0.611527, -39.7995, 25.922, -6.98294)
 
 [node name="Water" parent="." instance=ExtResource("20_2to41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2811, 30.2958, -34.6363)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2811, 32.1825, -34.6363)
 
 [node name="OxygenCylinder" parent="." instance=ExtResource("21_ky8ul")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2719, 18.7352, -25.4758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2719, 20.438, -25.4758)
 
 [node name="atmanPlayer" parent="." instance=ExtResource("22_f6s7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60428, 54.976, -0.261272)
@@ -218,4 +214,4 @@ rot_z_randomize = 5.0
 instance_mesh = ExtResource("25_77uh1")
 
 [node name="ANIM_maquina" parent="." instance=ExtResource("27_g22t3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 37, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4957, 36.2379, 9)
