@@ -12,7 +12,9 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	if "atman" in body.name:
+	print(self.name, " - body entered: ", body.name, " with groups: ", body.get_groups())
+	if body.is_in_group("player"):
+		print("picked ", self.name)
 		if is_in_group("WaterItem"):
 			body.has_water = true
 		elif is_in_group("OxygenItem"):

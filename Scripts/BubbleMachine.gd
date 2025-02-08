@@ -55,7 +55,8 @@ func _activate_machine():
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if "Player" in body.name:
+	print("body entered ", body.name, " with groups ",body.get_groups())
+	if body.is_in_group("player"):
 		entered = true
 		if body.has_water:
 			body.has_water = false

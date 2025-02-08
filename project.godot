@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Autoloader="*res://Scripts/Autoloader.gd"
 InteractionManager="*res://Scenes/Interaction/InteractionArea/InteractionManager.tscn"
 
+[global_group]
+
+player=""
+
 [input]
 
 ui_left={
