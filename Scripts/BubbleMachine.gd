@@ -54,10 +54,7 @@ func _activate_machine():
 		activated = true
 		Autoloader.bubble_growing = true
 		Autoloader.trees_growing = true
-		$"../AtmosphericBubble".start_growth()
-		$"../Instancer_trees".grow_meshes()
-		$"../Instancer_bushes".grow_meshes()
-		$"../Instancer_cacti".grow_meshes()
+		$AtmosphericBubble.start_growth()
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
