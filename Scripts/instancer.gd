@@ -6,12 +6,9 @@ extends Node3D
 @export var generate_colliders: bool = false
 @export var collider_coverage_dist : float = 50
 @export var ground_chunk_mesh: NodePath
-@export var pos_randomize : float = 0  # Amount of randomization for x and z positions
 @export_range(0,50) var instance_min_scale: float = 1
-@export var instance_height: float = 1
-@export var instance_width: float = 1
-@export var instance_spacing: int = 10
-@export var terrain_height: float = 1
+@export var initial_instance_scale_factor: float = 0.1 # the final instance scale factor should always be the inverse of this factor
+var final_instance_scale_factor: float = 1/initial_instance_scale_factor
 @export_range(0,10) var scale_randomize : float = 0.0  # Amount of randomization for uniform scale
 @export_range(0,PI) var instance_Y_rot : float = 0.0  # Amount of randomization for X rotation
 @export_range(0,PI) var instance_X_rot : float = 0.0  # Amount of randomization for Y rotation 
@@ -21,11 +18,8 @@ extends Node3D
 @export var rot_z_randomize : float = 0.0  # Amount of randomization for Z rotation 
 @export var instance_mesh : Mesh   # Mesh resource for each instance
 @export var instance_collision : Shape3D
-@export var update_frequency: float = 0.01
 @onready var instance_rows: int 
 @onready var offset: float 
-@onready var rand_x : float
-@onready var rand_z : float
 @onready var multi_mesh_instance
 @onready var multi_mesh
 var h_scale: float = 1
@@ -42,10 +36,6 @@ func _ready():
 	create_multimesh()
 	
 func create_multimesh():
-	#grab horizontal scale on the terrain mesh so match the scale of the heightmap in case your terrain is resized
-	h_scale = get_node(ground_chunk_mesh).scale.x # could be x or z, doesn not matter as they should be the same
-	v_scale = get_node(ground_chunk_mesh).scale.y
-	print("scale: h ", h_scale, " v ", v_scale)
 	# Create a MultiMeshInstance3D and set its MultiMesh
 	multi_mesh_instance = MultiMeshInstance3D.new()
 	multi_mesh_instance.top_level = true
@@ -159,7 +149,11 @@ func distribute_meshes():
 		t = t.rotated(normal_vector,rot.y)
 		t = t.rotated(normal_vector,rot.z)
 		
-		
+		t = t.scaled_local(Vector3(
+			initial_instance_scale_factor,
+			initial_instance_scale_factor,
+			initial_instance_scale_factor
+		))
 		
 		
 		# Set the instance data
@@ -205,3 +199,13 @@ func generate_subset():
 		if i==instance_amount-1:
 			spawn_colliders()
  
+func grow_meshes():
+	print("growing meshes...")
+	for i in range(instance_amount):
+		var t = multi_mesh.get_instance_transform(i)
+		multi_mesh.set_instance_transform(i, t.scaled_local(
+			Vector3(
+				final_instance_scale_factor,
+				final_instance_scale_factor,
+				final_instance_scale_factor
+			)))

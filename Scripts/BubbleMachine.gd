@@ -52,6 +52,12 @@ func _activate_machine():
 	if items_delivered == max_items:
 		print("Activated")
 		activated = true
+		Autoloader.bubble_growing = true
+		Autoloader.trees_growing = true
+		$"../AtmosphericBubble".start_growth()
+		$"../Instancer_trees".grow_meshes()
+		$"../Instancer_bushes".grow_meshes()
+		$"../Instancer_cacti".grow_meshes()
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

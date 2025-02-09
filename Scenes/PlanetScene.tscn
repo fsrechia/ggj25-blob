@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=30 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c2qaycdxyamuh" path="res://Assets/Planet/Planeta 2.glb" id="5_msvbl"]
 [ext_resource type="Script" path="res://Scripts/AtmosphericBubble.gd" id="6_xcch3"]
 [ext_resource type="AudioStream" uid="uid://co0c0uighcuua" path="res://Assets/Audio/space-bubble-theme-chill.wav" id="7_rsok5"]
-[ext_resource type="Texture2D" uid="uid://bs2bdq6qxd8x8" path="res://Materials/Pedra Azul.png" id="8_h2rqk"]
 [ext_resource type="AudioStream" uid="uid://btnv0hfcrf76y" path="res://Assets/Audio/space-bubble-theme-tense-clock.wav" id="8_n7rh4"]
 [ext_resource type="AudioStream" uid="uid://3auo2ux28qa6" path="res://Assets/Audio/space-bubble-theme-tense-orch.wav" id="9_0to2v"]
 [ext_resource type="AudioStream" uid="uid://bpmlmoqks6b5c" path="res://Assets/Audio/space-bubble-theme-tense-orchtrap.wav" id="10_hhjdc"]
@@ -32,12 +31,15 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4f7cl"]
 transparency = 1
 blend_mode = 1
-albedo_color = Color(0.721569, 0.819608, 1, 1)
-albedo_texture = ExtResource("8_h2rqk")
-metallic = 0.84
-metallic_specular = 0.24
+albedo_color = Color(0.259352, 0.327426, 0.564532, 1)
+metallic = 0.18
+metallic_specular = 0.09
 roughness = 0.23
 emission_energy_multiplier = 1.09
+rim_enabled = true
+rim_tint = 0.33
+ao_light_affect = 0.58
+refraction_scale = 0.02
 
 [sub_resource type="SphereMesh" id="SphereMesh_mcsil"]
 
@@ -129,7 +131,7 @@ environment = ExtResource("5_5kygm")
 [node name="AtmosphericBubble" type="MeshInstance3D" parent="."]
 transform = Transform3D(110, 0, 0, 0, 110, 0, 0, 0, 110, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_4f7cl")
-transparency = 0.59
+transparency = 0.63
 mesh = SubResource("SphereMesh_mcsil")
 script = ExtResource("6_xcch3")
 
@@ -156,13 +158,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.533, 46.6306, 11.6842)
 transform = Transform3D(0.343233, -0.93925, 0, 0.93925, 0.343233, 0, 0, 0, 1, -41.5104, 23.0442, 7.78782)
 
 [node name="Soap" parent="." instance=ExtResource("19_pc0h8")]
-transform = Transform3D(-0.502155, -0.349007, -0.791224, -0.570714, 0.821149, 0, 0.649713, 0.451562, -0.611527, -39.7995, 25.922, -6.98294)
+transform = Transform3D(-0.502155, -0.349007, -0.791224, -0.570714, 0.821149, 0, 0.649713, 0.451562, -0.611527, -8.50259, 39.5442, -26.0202)
 
 [node name="Water" parent="." instance=ExtResource("20_2to41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2811, 32.1825, -34.6363)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6898, 45.5323, -11.308)
 
 [node name="OxygenCylinder" parent="." instance=ExtResource("21_ky8ul")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2719, 20.438, -25.4758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.12325, 41.1507, -25.2349)
 
 [node name="atmanPlayer" parent="." instance=ExtResource("22_f6s7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60428, 54.976, -0.261272)
