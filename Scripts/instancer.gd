@@ -32,10 +32,16 @@ var v_scale: float = 1
 @onready var first_update= true
 @onready var meshes_growing = false
 @onready var growth_vector = Vector3(1,1,1)
-@onready var growth_speed = 0.2
+@onready var growth_speed = 0.5
+@onready var height := instance_mesh.get_aabb().size.y
+#@onready var growth_randf_range_start = 1.0
+#@onready var growth_randf_range_end = 1.05
 
 func _ready():
 	print("instancer starting")
+	height = instance_mesh.get_aabb().size.y
+	# grow meshes here for testing
+	# grow_meshes()
 	create_multimesh()
 	
 func create_multimesh():
@@ -130,7 +136,7 @@ func distribute_meshes():
 
 		var normal_vector = surface_point.normalized()
 		# account for half the size of assets before placing on surface (trees were stuffed inside the planet, for some reason)
-		surface_point = raycast_down_to_surface_point(outer_point, planet) + (instance_mesh.get_aabb().size/2 * normal_vector)
+		surface_point = raycast_down_to_surface_point(outer_point, planet) + (initial_instance_scale_factor * instance_mesh.get_aabb().size/2 * normal_vector)
 		
 		var rot = Vector3(0,0,0)
 
@@ -157,6 +163,7 @@ func distribute_meshes():
 			initial_instance_scale_factor,
 			initial_instance_scale_factor
 		))
+		
 		
 		
 		# Set the instance data
@@ -209,16 +216,24 @@ func grow_meshes():
 func _process(delta: float) -> void:
 	if meshes_growing:
 		growth_vector = Vector3(1,1,1) + Vector3(1,1,1) * growth_speed * delta
-		# print("growth_vector ",growth_vector)
 		grow_meshes_by(growth_vector)
 
 func grow_meshes_by(scale_factor: Vector3):
 	var t :Transform3D
+	var normal_vector :Vector3
+	var growth_upward :Vector3
+	var new_height :float
 	for i in range(instance_amount):
 		t = multi_mesh.get_instance_transform(i)
+		# keep the tree rooted in ground, as its pivot point is in the center
+		# new_height = height * scale_factor.y
+		# normal_vector = t.origin.normalized()
+		# growth_upward = normal_vector * (new_height - height)/2
+		# t.origin = t.origin + growth_upward
+		# height = new_height
 		multi_mesh.set_instance_transform(i, t.scaled_local(scale_factor))
-		
 	# print("current size ", t.basis.get_scale())
+	# the last tree scale is the trigger to stop growth
 	if t.basis.get_scale().x >= 1.0:
 		print("stop growing meshes ", instance_mesh.resource_name)
 		meshes_growing = false
