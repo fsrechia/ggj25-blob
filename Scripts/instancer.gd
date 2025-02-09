@@ -30,7 +30,10 @@ var v_scale: float = 1
 @onready var colliders_to_spawn: Array
 @onready var last_pos: Vector3
 @onready var first_update= true
- 
+@onready var meshes_growing = false
+@onready var growth_vector = Vector3(1,1,1)
+@onready var growth_speed = 0.2
+
 func _ready():
 	print("instancer starting")
 	create_multimesh()
@@ -200,12 +203,22 @@ func generate_subset():
 			spawn_colliders()
  
 func grow_meshes():
-	print("growing meshes...")
+	print("start growing meshes ", instance_mesh.resource_name)
+	meshes_growing = true
+
+func _process(delta: float) -> void:
+	if meshes_growing:
+		growth_vector = Vector3(1,1,1) + Vector3(1,1,1) * growth_speed * delta
+		# print("growth_vector ",growth_vector)
+		grow_meshes_by(growth_vector)
+
+func grow_meshes_by(scale_factor: Vector3):
+	var t :Transform3D
 	for i in range(instance_amount):
-		var t = multi_mesh.get_instance_transform(i)
-		multi_mesh.set_instance_transform(i, t.scaled_local(
-			Vector3(
-				final_instance_scale_factor,
-				final_instance_scale_factor,
-				final_instance_scale_factor
-			)))
+		t = multi_mesh.get_instance_transform(i)
+		multi_mesh.set_instance_transform(i, t.scaled_local(scale_factor))
+		
+	# print("current size ", t.basis.get_scale())
+	if t.basis.get_scale().x >= 1.0:
+		print("stop growing meshes ", instance_mesh.resource_name)
+		meshes_growing = false

@@ -2,7 +2,7 @@ extends MeshInstance3D
 
 @export var bubble_initial_scale = Vector3(90.0,90.0,90.0)
 @export var final_global_position : = Vector3(0.0,0.0,0.0)
-@export var final_scale : = Vector3(120.0,120.0,120.0)
+@export var final_scale : = Vector3(115.0,115.0,115.0)
 @export var growth_speed = 0.02
 
 @onready var bubble_growing = false 
