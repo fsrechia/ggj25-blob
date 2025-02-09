@@ -86,18 +86,24 @@ func raycast_down_to_surface_point(external_point : Vector3, node: Node3D) -> Ve
 	var query = PhysicsRayQueryParameters3D.create(external_point, sphere_center) # Extend ray far enough
 	var result = space_state.intersect_ray(query)
 	# 5. Check for Collision and Get Point
+	
+	# our raycast should hit the static body within two nested children levels:
+	# TODO: improve this, as it is extremely hackish
+	var landscape = node.get_child(0, true)
+	var staticbody = landscape.get_child(0, true)
+
 	if result:
-		#if result.collider == node: # check if the collision is with the desired sphere.
+		if result.collider == staticbody: # check if the collision is with the desired node.
 			var collision_point = result.position
-			#print("result: ", result)
+			#print("result: ", result.collider)
 			#print("Collision Point: ", collision_point)
 			# Do something with the collision point, e.g., visualize it.
 			# Example: create a marker at the collision point
 			return collision_point
-		#else:
-			#print("Raycast hit something else")
-			#print("result: ", result)
-			#return Vector3.ZERO
+		else:
+			print("Raycast hit something else")
+			#print("result: ", result.collider)
+			return Vector3.ZERO
 	else:
 		print("No collision")
 		return Vector3.ZERO
