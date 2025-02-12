@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=31 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -24,6 +24,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c1g6aue7b1j7h" path="res://Assets/Trees/GEO_arbusto_mesh.res" id="24_4qu21"]
 [ext_resource type="ArrayMesh" uid="uid://c8cob4761yyxe" path="res://Assets/Trees/GEO_arvore_mesh.res" id="24_imgn8"]
 [ext_resource type="ArrayMesh" uid="uid://crxl18gf5c4ed" path="res://Assets/Trees/GEO_cacto_mesh.res" id="25_77uh1"]
+[ext_resource type="PackedScene" uid="uid://dckk24r0kx0h2" path="res://Assets/Planet/geo_planeta.tscn" id="26_ju45b"]
 [ext_resource type="PackedScene" uid="uid://dhvfpde3l0ol4" path="res://Scenes/Machine2.tscn" id="27_g22t3"]
 
 [sub_resource type="SphereShape3D" id="2"]
@@ -58,7 +59,27 @@ refraction_scale = 0.02
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_67bi2")
 
+[node name="GEO_planeta2" parent="." instance=ExtResource("26_ju45b")]
+transform = Transform3D(42, 0, 0, 0, 42, 0, 0, 0, 42, 0, 0, 0)
+
+[node name="GEO_planeta" parent="GEO_planeta2" index="0"]
+layers = 3
+
+[node name="GravityWell" type="Area3D" parent="GEO_planeta2"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_k6k61")
+
+[node name="BoundingShape" type="CollisionShape3D" parent="GEO_planeta2/GravityWell"]
+shape = SubResource("2")
+
+[node name="FalloffModel" type="Node" parent="GEO_planeta2/GravityWell"]
+script = ExtResource("4_rc4l4")
+start_radius = 52.0
+
 [node name="Planet" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -125.8)
 
 [node name="Mesh" type="CSGSphere3D" parent="Planet"]
 visible = false
@@ -169,7 +190,6 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 0, 0)
 script = ExtResource("22_74n8b")
 player_node = NodePath("../atmanPlayer")
 instance_amount = 500
-ground_chunk_mesh = NodePath("../Planet/Planeta 3")
 scale_randomize = 2.381
 rot_y_randomize = 360.0
 rot_x_randomize = 10.0
@@ -181,7 +201,6 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 0, 0)
 script = ExtResource("22_74n8b")
 player_node = NodePath("../atmanPlayer")
 instance_amount = 600
-ground_chunk_mesh = NodePath("../Planet/Planeta 3")
 rot_y_randomize = 360.0
 rot_x_randomize = 5.0
 rot_z_randomize = 5.0
@@ -191,7 +210,6 @@ instance_mesh = ExtResource("24_4qu21")
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 0, 0)
 script = ExtResource("22_74n8b")
 player_node = NodePath("../atmanPlayer")
-ground_chunk_mesh = NodePath("../Planet/Planeta 3")
 rot_y_randomize = 360.0
 rot_x_randomize = 5.0
 rot_z_randomize = 5.0
@@ -211,3 +229,5 @@ script = ExtResource("6_xcch3")
 [node name="StaticBody3D" type="StaticBody3D" parent="ANIM_maquina/AtmosphericBubble"]
 collision_layer = 2
 collision_mask = 2
+
+[editable path="GEO_planeta2"]

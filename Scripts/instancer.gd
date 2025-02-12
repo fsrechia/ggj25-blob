@@ -5,7 +5,7 @@ extends Node3D
 @export var instance_amount : int = 100  # Number of instances to generate
 @export var generate_colliders: bool = false
 @export var collider_coverage_dist : float = 50
-@export var ground_chunk_mesh: NodePath
+
 @export_range(0,50) var instance_min_scale: float = 1
 @export var initial_instance_scale_factor: float = 0.1 # the final instance scale factor should always be the inverse of this factor
 var final_instance_scale_factor: float = 1/initial_instance_scale_factor
@@ -36,12 +36,25 @@ var v_scale: float = 1
 @onready var height := instance_mesh.get_aabb().size.y
 #@onready var growth_randf_range_start = 1.0
 #@onready var growth_randf_range_end = 1.05
+@onready var ground_chunk_mesh: = $"../GEO_planeta2"
+@onready var internal_ground_mesh: = $"../GEO_planeta2/GEO_planeta"
+@onready var planet_collision_node: = $"../GEO_planeta2/GEO_planeta/StaticBody3D"
+@onready var collision_shape: = $"../GEO_planeta2/GEO_planeta/StaticBody3D/CollisionShape3D"
+
 
 func _ready():
 	print("instancer starting")
 	height = instance_mesh.get_aabb().size.y
 	# grow meshes here for testing
-	# grow_meshes()
+	#grow_meshes()
+	
+	#print("ground 1 ", ground_chunk_mesh)
+	#print("ground 2  ", internal_ground_mesh)
+	#print("ground 3   ", planet_collision_node)
+	#print("ground 4    ", collision_shape)
+	#print("gravity well: ", $"../GEO_planeta2/GravityWell")
+	#print("gravity well bounding shape: ", $"../GEO_planeta2/GravityWell/BoundingShape")
+	
 	create_multimesh()
 	
 func create_multimesh():
@@ -79,21 +92,14 @@ func get_random_point_on_sphere(radius : float):
 	return Vector3(x, y, z)
 	
 func raycast_down_to_surface_point(external_point : Vector3, node: Node3D) -> Vector3:
-	#print("raycasting to node: ", node)
 	var sphere_center = node.global_transform.origin
 	var space_state = get_world_3d().direct_space_state
-	#print("raycasting from ", external_point, " to ", sphere_center)
+	# print("raycasting from ", external_point, " to ", sphere_center)
 	var query = PhysicsRayQueryParameters3D.create(external_point, sphere_center) # Extend ray far enough
 	var result = space_state.intersect_ray(query)
-	# 5. Check for Collision and Get Point
-	
-	# our raycast should hit the static body within two nested children levels:
-	# TODO: improve this, as it is extremely hackish
-	var landscape = node.get_child(0, true)
-	var staticbody = landscape.get_child(0, true)
 
 	if result:
-		if result.collider == staticbody: # check if the collision is with the desired node.
+		if result.collider == node: # check if the collision is with the desired node.
 			var collision_point = result.position
 			#print("result: ", result.collider)
 			#print("Collision Point: ", collision_point)
@@ -101,8 +107,7 @@ func raycast_down_to_surface_point(external_point : Vector3, node: Node3D) -> Ve
 			# Example: create a marker at the collision point
 			return collision_point
 		else:
-			print("Raycast hit something else")
-			#print("result: ", result.collider)
+			print("Raycast hit something else: ", result.collider, " expected: ", node)
 			return Vector3.ZERO
 	else:
 		print("No collision")
@@ -128,12 +133,12 @@ func align_mesh_y_to_vector(t: Transform3D, target_vector: Vector3):
 func distribute_meshes():
 	print("distribute meshes called")
 	randomize()
-	var planet = get_node(ground_chunk_mesh)
+	var planet = ground_chunk_mesh
 	var outer_radius = 5 * planet.scale.x
 	for i in range(instance_amount):
 		var outer_point = get_random_point_on_sphere(outer_radius)
 		
-		var surface_point = raycast_down_to_surface_point(outer_point, planet)
+		var surface_point = raycast_down_to_surface_point(outer_point, planet_collision_node)
 		if surface_point == Vector3.ZERO:
 			print("Raycasting error... aborting this instance")
 			continue
@@ -142,7 +147,7 @@ func distribute_meshes():
 
 		var normal_vector = surface_point.normalized()
 		# account for half the size of assets before placing on surface (trees were stuffed inside the planet, for some reason)
-		surface_point = raycast_down_to_surface_point(outer_point, planet) + (initial_instance_scale_factor * instance_mesh.get_aabb().size/2 * normal_vector)
+		surface_point = surface_point + (initial_instance_scale_factor * instance_mesh.get_aabb().size/2 * normal_vector)
 		
 		var rot = Vector3(0,0,0)
 

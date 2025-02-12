@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dckk24r0kx0h2"]
+
+[ext_resource type="PackedScene" uid="uid://croglp76x0n4n" path="res://Assets/Planet/GEO_planeta.fbx" id="1_8ootm"]
+[ext_resource type="Material" uid="uid://cw8yc2605nb5x" path="res://Assets/Planet/GEO_planeta_verde.tres" id="2_2aitb"]
+
+[node name="GEO_planeta" instance=ExtResource("1_8ootm")]
+
+[node name="GEO_planeta" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_2aitb")
