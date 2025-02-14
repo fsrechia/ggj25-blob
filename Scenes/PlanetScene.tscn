@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=32 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -26,6 +26,7 @@
 [ext_resource type="ArrayMesh" uid="uid://crxl18gf5c4ed" path="res://Assets/Trees/GEO_cacto_mesh.res" id="25_77uh1"]
 [ext_resource type="PackedScene" uid="uid://dckk24r0kx0h2" path="res://Assets/Planet/geo_planeta.tscn" id="26_ju45b"]
 [ext_resource type="PackedScene" uid="uid://dhvfpde3l0ol4" path="res://Scenes/Machine2.tscn" id="27_g22t3"]
+[ext_resource type="PackedScene" uid="uid://b6xfruinkahfr" path="res://Scenes/UI/Items.tscn" id="27_ya7p1"]
 
 [sub_resource type="SphereShape3D" id="2"]
 
@@ -229,5 +230,7 @@ script = ExtResource("6_xcch3")
 [node name="StaticBody3D" type="StaticBody3D" parent="ANIM_maquina/AtmosphericBubble"]
 collision_layer = 2
 collision_mask = 2
+
+[node name="Items" parent="." instance=ExtResource("27_ya7p1")]
 
 [editable path="GEO_planeta2"]

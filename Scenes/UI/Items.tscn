@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6xfruinkahfr"]
+
+[ext_resource type="Texture2D" uid="uid://qxpd4haavgjj" path="res://Assets/Itens/Soap.png" id="1_a81a6"]
+[ext_resource type="Script" path="res://Scripts/UI/Items.gd" id="1_y4mey"]
+[ext_resource type="Texture2D" uid="uid://c7yakcwv3aft1" path="res://Assets/Itens/Water.png" id="2_wjpo0"]
+[ext_resource type="Texture2D" uid="uid://bcf1qtoxyh0hb" path="res://Assets/Itens/Oxygen.png" id="3_b8ytm"]
+
+[node name="Items" type="CanvasLayer"]
+script = ExtResource("1_y4mey")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -302.0
+offset_top = 1.0
+offset_right = 1148.0
+offset_bottom = 1209.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+columns = 2
+
+[node name="SoapIcon" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_a81a6")
+stretch_mode = 2
+
+[node name="SoapLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = "1 / 1"
+
+[node name="WaterIcon" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_wjpo0")
+
+[node name="WaterLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = "1 / 1"
+
+[node name="OxygenIcon" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_b8ytm")
+
+[node name="OxygenLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = "1 / 1"

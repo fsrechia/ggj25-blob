@@ -7,6 +7,13 @@ enum SongState {
 	TENSE_TRAP
 }
 
+enum ItemType {
+	NONE,
+	SOAP,
+	WATER,
+	OXYGEN
+}
+
 const TIME_TO_DISASTER = 60.0
 
 var bubble_growing :bool = false

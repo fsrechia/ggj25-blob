@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 Autoloader="*res://Scripts/Autoloader.gd"
 InteractionManager="*res://Scenes/Interaction/InteractionArea/InteractionManager.tscn"
+CustomSignals="*res://Scripts/CustomSignals.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global_group]
 
