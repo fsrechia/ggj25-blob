@@ -14,9 +14,16 @@ extends CharacterBody3D
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
+@onready var healthbar = $CanvasLayer/HealthBar
+
 var has_water := false
 var has_oxygen_cylinder := false
 var has_soap := false
+var health : int
+
+func _ready():
+	health = 100
+	healthbar.init_health(health)
 
 static func get_movement_input() -> Vector2:
 	var vector := Vector2(
