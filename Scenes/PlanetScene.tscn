@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bppn1jo6uahww"]
+[gd_scene load_steps=35 format=3 uid="uid://bppn1jo6uahww"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetScene.gd" id="1_67bi2"]
 [ext_resource type="Material" uid="uid://bb56vrpwj6p0x" path="res://Materials/Stone.tres" id="2_3e4hk"]
@@ -21,11 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://dw5xxbvfeewwt" path="res://Scenes/Prefabs/OxygenCylinder.tscn" id="21_ky8ul"]
 [ext_resource type="Script" path="res://Scripts/instancer.gd" id="22_74n8b"]
 [ext_resource type="PackedScene" uid="uid://c0df7i5oapcrj" path="res://Player/AtmanPlayer.tscn" id="22_f6s7q"]
-[ext_resource type="ArrayMesh" uid="uid://c1g6aue7b1j7h" path="res://Assets/Trees/GEO_arbusto_mesh.res" id="24_4qu21"]
-[ext_resource type="ArrayMesh" uid="uid://c8cob4761yyxe" path="res://Assets/Trees/GEO_arvore_mesh.res" id="24_imgn8"]
-[ext_resource type="ArrayMesh" uid="uid://crxl18gf5c4ed" path="res://Assets/Trees/GEO_cacto_mesh.res" id="25_77uh1"]
+[ext_resource type="ArrayMesh" uid="uid://cpm0qhh37xhqm" path="res://Assets/Trees/mesh_arvore.res" id="22_ift30"]
+[ext_resource type="Material" uid="uid://cjxju2eat0n0o" path="res://Assets/Trees/mat_arvore.res" id="23_ex64o"]
+[ext_resource type="ArrayMesh" uid="uid://dcyxjlhrk8ao1" path="res://Assets/Trees/mesh_arbusto.res" id="23_sgana"]
+[ext_resource type="ArrayMesh" uid="uid://d1eyoyh6ke6c0" path="res://Assets/Trees/mesh_cacto.res" id="24_rfm2y"]
+[ext_resource type="Material" uid="uid://c7qqj28u00o43" path="res://Assets/Trees/mat_arbusto.res" id="25_ac2ka"]
 [ext_resource type="PackedScene" uid="uid://dckk24r0kx0h2" path="res://Assets/Planet/geo_planeta.tscn" id="26_ju45b"]
 [ext_resource type="PackedScene" uid="uid://dhvfpde3l0ol4" path="res://Scenes/Machine2.tscn" id="27_g22t3"]
+[ext_resource type="Material" uid="uid://dkf4frpetcpxa" path="res://Assets/Trees/mat_cacto.res" id="27_vxqvk"]
 [ext_resource type="PackedScene" uid="uid://b6xfruinkahfr" path="res://Scenes/UI/Items.tscn" id="27_ya7p1"]
 
 [sub_resource type="SphereShape3D" id="2"]
@@ -195,7 +198,8 @@ scale_randomize = 2.381
 rot_y_randomize = 360.0
 rot_x_randomize = 10.0
 rot_z_randomize = 10.0
-instance_mesh = ExtResource("24_imgn8")
+instance_mesh = ExtResource("22_ift30")
+instance_material = ExtResource("23_ex64o")
 
 [node name="Instancer_bushes" type="Node3D" parent="." node_paths=PackedStringArray("player_node")]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 0, 0)
@@ -205,7 +209,8 @@ instance_amount = 600
 rot_y_randomize = 360.0
 rot_x_randomize = 5.0
 rot_z_randomize = 5.0
-instance_mesh = ExtResource("24_4qu21")
+instance_mesh = ExtResource("23_sgana")
+instance_material = ExtResource("25_ac2ka")
 
 [node name="Instancer_cacti" type="Node3D" parent="." node_paths=PackedStringArray("player_node")]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 0, 0)
@@ -214,7 +219,8 @@ player_node = NodePath("../atmanPlayer")
 rot_y_randomize = 360.0
 rot_x_randomize = 5.0
 rot_z_randomize = 5.0
-instance_mesh = ExtResource("25_77uh1")
+instance_mesh = ExtResource("24_rfm2y")
+instance_material = ExtResource("27_vxqvk")
 
 [node name="ANIM_maquina" parent="." instance=ExtResource("27_g22t3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4957, 36.2379, 9)

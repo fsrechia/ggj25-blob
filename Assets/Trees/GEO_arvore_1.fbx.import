@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c2mb0rqxlpt12"
-path="res://.godot/imported/Arvore2.fbx-5d4d63a36c56218200190bd486a93768.scn"
+uid="uid://b2ktxgrqstvqa"
+path="res://.godot/imported/GEO_arvore_1.fbx-ad80a14d6970f9d8a589365b1a678cce.scn"
 
 [deps]
 
-source_file="res://Assets/Trees/Arvore2.fbx"
-dest_files=["res://.godot/imported/Arvore2.fbx-5d4d63a36c56218200190bd486a93768.scn"]
+source_file="res://Assets/Trees/GEO_arvore_1.fbx"
+dest_files=["res://.godot/imported/GEO_arvore_1.fbx-ad80a14d6970f9d8a589365b1a678cce.scn"]
 
 [params]
 
@@ -31,7 +31,19 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"meshes": {
+"GEO_arvore_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Assets/Trees/mesh_arvore1.res"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

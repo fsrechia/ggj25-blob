@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cp3gsa45da84q"
+uid="uid://c50ya0qs6ypha"
 path="res://.godot/imported/GEO_arbusto.fbx-ee6a2bc09f7c6e39a683522791c779ad.scn"
 
 [deps]
@@ -40,7 +40,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Assets/Trees/GEO_arbusto_mesh.res"
+"save_to_file/path": "res://Assets/Trees/mesh_arbusto.res"
 }
 }
 }

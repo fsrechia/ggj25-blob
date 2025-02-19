@@ -17,6 +17,7 @@ var final_instance_scale_factor: float = 1/initial_instance_scale_factor
 @export var rot_x_randomize : float = 0.0  # Amount of randomization for X rotation 
 @export var rot_z_randomize : float = 0.0  # Amount of randomization for Z rotation 
 @export var instance_mesh : Mesh   # Mesh resource for each instance
+@export var instance_material : Material   # material resource for each instance
 @export var instance_collision : Shape3D
 @onready var instance_rows: int 
 @onready var offset: float 
@@ -43,6 +44,7 @@ var v_scale: float = 1
 
 
 func _ready():
+	instance_mesh.surface_set_material(0, instance_material)
 	print("instancer starting")
 	height = instance_mesh.get_aabb().size.y
 	# grow meshes here for testing
@@ -64,7 +66,10 @@ func create_multimesh():
 	multi_mesh = MultiMesh.new()
 	multi_mesh.transform_format = MultiMesh.TRANSFORM_3D
 	multi_mesh.instance_count = instance_amount
-	multi_mesh.mesh = instance_mesh 
+	var material = StandardMaterial3D.new()
+	#material.set_path("res://Assets/Trees/mat_arvore.res")
+	
+	multi_mesh.mesh = instance_mesh
 	instance_rows = sqrt(instance_amount) #rounded down to integer
 	offset = round(instance_amount/instance_rows) #rounded up/down to nearest integer
 	
@@ -147,7 +152,7 @@ func distribute_meshes():
 
 		var normal_vector = surface_point.normalized()
 		# account for half the size of assets before placing on surface (trees were stuffed inside the planet, for some reason)
-		surface_point = surface_point + (initial_instance_scale_factor * instance_mesh.get_aabb().size/2 * normal_vector)
+		# surface_point = surface_point + (initial_instance_scale_factor * instance_mesh.get_aabb().size/2 * normal_vector)
 		
 		var rot = Vector3(0,0,0)
 

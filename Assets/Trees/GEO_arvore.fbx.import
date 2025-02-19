@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c7narpactub8n"
+uid="uid://dnccc8pxwltcc"
 path="res://.godot/imported/GEO_arvore.fbx-b93bf5f630b337708236740f79396041.scn"
 
 [deps]
@@ -40,7 +40,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Assets/Trees/GEO_arvore_mesh.res"
+"save_to_file/path": "res://Assets/Trees/mesh_arvore.res"
 }
 }
 }

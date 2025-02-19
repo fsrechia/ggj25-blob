@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cwhup2l04b1j5"
+uid="uid://305qk1ybe0bw"
 path="res://.godot/imported/GEO_cacto.fbx-51ffe1239bf1351d722fa029a67b1ccf.scn"
 
 [deps]
@@ -40,7 +40,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Assets/Trees/GEO_cacto_mesh.res"
+"save_to_file/path": "res://Assets/Trees/mesh_cacto.res"
 }
 }
 }

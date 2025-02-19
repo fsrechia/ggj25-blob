@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgyx8j8ui7gsg"
-path.s3tc="res://.godot/imported/GEO_arbusto_0.png-93a0d492493d392df9a5ab15d0744668.s3tc.ctex"
+uid="uid://dptuejfap2i18"
+path.s3tc="res://.godot/imported/MAT_arvore_cor.png-ca79a37c2dd24feecb8c3cb7cacd38a2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "116a4c181df063c52814ae364ca58ed2"
-}
 
 [deps]
 
-source_file="res://Assets/Trees/GEO_arbusto_0.png"
-dest_files=["res://.godot/imported/GEO_arbusto_0.png-93a0d492493d392df9a5ab15d0744668.s3tc.ctex"]
+source_file="res://Assets/Trees/MAT_arvore_cor.png"
+dest_files=["res://.godot/imported/MAT_arvore_cor.png-ca79a37c2dd24feecb8c3cb7cacd38a2.s3tc.ctex"]
 
 [params]
 

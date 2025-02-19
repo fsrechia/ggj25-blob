@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://hkrfrk75q6jv"]
 
 [ext_resource type="Script" path="res://Scripts/instancer.gd" id="1_krhbw"]
-[ext_resource type="ArrayMesh" uid="uid://c8cob4761yyxe" path="res://Assets/Trees/GEO_arvore_mesh.res" id="2_1v4l5"]
+[ext_resource type="ArrayMesh" uid="uid://c8cob4761yyxe" path="res://Assets/Trees/old2/GEO_arvore_mesh.res" id="2_1v4l5"]
 [ext_resource type="PackedScene" uid="uid://c0df7i5oapcrj" path="res://Player/AtmanPlayer.tscn" id="3_q4ek5"]
 [ext_resource type="PackedScene" uid="uid://coqp6023uuofy" path="res://Assets/Planet/Planeta 3.glb" id="4_2j3c0"]
 
