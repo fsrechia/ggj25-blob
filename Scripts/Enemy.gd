@@ -14,11 +14,7 @@ extends CharacterBody3D
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
-var has_water := false
-var has_oxygen_cylinder := false
-var has_soap := false
-
-
+@export var damage_amount : int = 1
 
 func get_random_movement_input() -> Vector2:
 	var vector := Vector2(

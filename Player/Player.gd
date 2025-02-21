@@ -9,17 +9,20 @@ extends CharacterBody3D
 @export var torque_control_floor := 10.0
 @export var torque_control_air := 1.0
 
+@export var health : int
+
 @onready var _balance_point: BalancePoint = $BalancePoint
 @onready var _camera_anchor: CameraAnchor = $CameraAnchor
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 @onready var healthbar = $CanvasLayer/HealthBar
+@onready var hurt_box: Area3D = $HurtBox
+
 
 var has_water := false
 var has_oxygen_cylinder := false
 var has_soap := false
-var health : int
 
 func _ready():
 	health = 100
@@ -147,3 +150,24 @@ func _process_turning(movement_intention: Vector3, control: float):
 		transform.basis.slerp(look_intention, control).orthonormalized(),
 		transform.origin
 	)
+
+func player_death():
+	#TODO: Play death anim
+	hurt_box.set_block_signals(true)
+	
+	#queue_free()
+	#TODO: Generate some code to get when player died, to call GameOver Screen
+
+func update_health(value: int) -> void:
+	health -= value
+	healthbar.health = health
+	
+	if health <= 0:
+		player_death()
+	
+
+func _on_hurt_box_body_entered(body: Node3D) -> void:
+	if body.is_in_group("enemy"):
+		print("Enemy entered, damage:", body.damage_amount)
+		update_health(body.damage_amount)
+	

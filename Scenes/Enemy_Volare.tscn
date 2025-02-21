@@ -5,16 +5,28 @@
 [ext_resource type="Script" path="res://Forces/BalancePoint.gd" id="2_oby2r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n5p7l"]
+radius = 1.10271
+height = 5.66562
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jagcu"]
 radius = 0.15
 height = 0.3
 
-[node name="VolareAnimado" instance=ExtResource("1_7nf36")]
+[node name="VolareAnimado" groups=["enemy"] instance=ExtResource("1_7nf36")]
+collision_layer = 4
+collision_mask = 9
 script = ExtResource("2_3wvno")
 
+[node name="Skeleton3D" parent="EnemyArmature" index="0"]
+bones/0/rotation = Quaternion(-0.14198, -6.74772e-17, -6.74772e-17, 0.989869)
+bones/1/rotation = Quaternion(-0.0964316, -1.95876e-17, -1.0799e-17, 0.99534)
+bones/2/rotation = Quaternion(-0.0294891, -0.0152471, -0.45903, 0.887801)
+bones/3/rotation = Quaternion(0.143889, 1.58602e-09, 0.490553, 0.859449)
+bones/4/rotation = Quaternion(0.463388, -2.05359e-23, -1.02893e-16, 0.886156)
+bones/5/rotation = Quaternion(-0.445942, 1.92183e-23, 9.9019e-17, 0.895062)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, -0.956639)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5.46809, -0.244476)
 shape = SubResource("CapsuleShape3D_n5p7l")
 
 [node name="BalancePoint" type="Area3D" parent="." index="3"]
