@@ -14,7 +14,8 @@ var max_items = 3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_activate_machine")
-
+	$AnimationTree.set("parameters/doors/transition_request", "closed")
+	$AnimationTree.set("parameters/Todos/add_amount", 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,7 +56,8 @@ func _activate_machine():
 		Autoloader.bubble_growing = true
 		Autoloader.trees_growing = true
 		$AtmosphericBubble.start_growth()
-
+		$AnimationTree.set("parameters/doors/transition_request", "open")
+		$AnimationTree.set("parameters/Todos/add_amount", 1.0)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	print("body entered ", body.name, " with groups ",body.get_groups())
