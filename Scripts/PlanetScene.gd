@@ -2,6 +2,8 @@ extends Node3D
 
 @export var countdown_time = Autoloader.TIME_TO_DISASTER
 @onready var countdown_label = $TimeRemaining
+@onready var path_follow_3d_aquae: PathFollow3D = $Path3DAquae/PathFollow3D
+@onready var aquae_enemy: CharacterBody3D = $Path3DAquae/PathFollow3D/AquaeEnemy
 
 var time_remaining: float
 
@@ -22,3 +24,6 @@ func _process(delta: float) -> void:
 			$ScriptedAudioStream.play_tense()
 	else:
 		countdown_label.set_text("0.00")		
+
+func _physics_process(delta: float) -> void:
+	path_follow_3d_aquae.progress += aquae_enemy.speed * delta

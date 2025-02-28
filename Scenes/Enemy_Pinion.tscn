@@ -36,7 +36,7 @@ bones/6/rotation = Quaternion(-0.00559624, -0.455887, 0.889674, -0.0248128)
 bones/7/rotation = Quaternion(0.806515, -1.82052e-08, 0.00232334, 0.59121)
 bones/8/rotation = Quaternion(0.123545, -6.15183e-09, 0.00674619, 0.992316)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" groups=["enemy"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.5489, -0.531587)
 shape = SubResource("CapsuleShape3D_pc1qw")
 

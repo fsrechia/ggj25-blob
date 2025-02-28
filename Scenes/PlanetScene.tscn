@@ -14,7 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://bpmlmoqks6b5c" path="res://Assets/Audio/space-bubble-theme-tense-orchtrap.wav" id="10_hhjdc"]
 [ext_resource type="Script" path="res://Scenes/ScriptedAudioStream.gd" id="11_mb7kq"]
 [ext_resource type="PackedScene" uid="uid://b4uxw0mu4e7wi" path="res://Scenes/Enemy_Aquae.tscn" id="15_0c8hm"]
-[ext_resource type="PackedScene" uid="uid://cy24incxe0cqy" path="res://Scenes/Enemy_Volare.tscn" id="16_ww06r"]
 [ext_resource type="PackedScene" uid="uid://dqf5yr1syejnq" path="res://Scenes/Enemy_Pinion.tscn" id="17_a8vkd"]
 [ext_resource type="PackedScene" uid="uid://dwlp57hf1prxp" path="res://Scenes/Prefabs/Soap.tscn" id="19_pc0h8"]
 [ext_resource type="PackedScene" uid="uid://dwnv17pebasdn" path="res://Scenes/Prefabs/Water.tscn" id="20_2to41"]
@@ -59,6 +58,13 @@ ao_light_affect = 0.58
 refraction_scale = 0.02
 
 [sub_resource type="SphereMesh" id="SphereMesh_mcsil"]
+
+[sub_resource type="Curve3D" id="Curve3D_fa5xv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.60355, -1.26466, 4.07445, 0, 0, 0, 0, 0, 0, 0.60355, -1.26466, 4.07445, 0, 0, 0, 0, 0, 0, 0.60355, -1.26466, 4.07445, 0, 0, 0, 0, 0, 0, 8.72272, -8.04087, -4.96962, 0, 0, 0, 0, 0, 0, 3.33607, -6.17469, -19.9824, 0, 0, 0, 0, 0, 0, -7.14842, 5.46243, -20.5706, 0, 0, 0, 0, 0, 0, 0.60355, -1.26466, 4.07445),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_67bi2")
@@ -162,17 +168,11 @@ script = ExtResource("11_mb7kq")
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="AquaeEnemy" parent="." instance=ExtResource("15_0c8hm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8679, 49.2081, 0)
-
-[node name="VolareAnimado" parent="." instance=ExtResource("16_ww06r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.533, 46.6306, 11.6842)
-
 [node name="Pinion" parent="." instance=ExtResource("17_a8vkd")]
 transform = Transform3D(0.343233, -0.93925, 0, 0.93925, 0.343233, 0, 0, 0, 1, -41.5104, 23.0442, 7.78782)
 
 [node name="Soap" parent="." instance=ExtResource("19_pc0h8")]
-transform = Transform3D(-0.502155, -0.349007, -0.791224, -0.570714, 0.821149, 0, 0.649713, 0.451562, -0.611527, -8.50259, 39.5442, -26.0202)
+transform = Transform3D(-0.502155, -0.349007, -0.791224, -0.570714, 0.821149, 0, 0.649713, 0.451562, -0.611527, 40.9573, 26.9229, 0.839089)
 
 [node name="Water" parent="." instance=ExtResource("20_2to41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6898, 45.5323, -11.308)
@@ -238,5 +238,15 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Items" parent="." instance=ExtResource("27_ya7p1")]
+
+[node name="Path3DAquae" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0306, 29.1401, 11.1496)
+curve = SubResource("Curve3D_fa5xv")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3DAquae"]
+transform = Transform3D(0.99999, 0, 0, 0, 0.999979, 0, 0, 0, 0.999994, 0.60355, -1.26466, 4.07445)
+
+[node name="AquaeEnemy" parent="Path3DAquae/PathFollow3D" instance=ExtResource("15_0c8hm")]
+transform = Transform3D(-0.545516, 0.34945, -0.761775, 0.444363, 0.891252, 0.0906329, 0.710605, -0.289061, -0.641474, -1.16035, 2.84612, -7.15012)
 
 [editable path="GEO_planeta2"]
