@@ -240,7 +240,7 @@ collision_mask = 2
 [node name="Items" parent="." instance=ExtResource("27_ya7p1")]
 
 [node name="Path3DAquae" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0306, 29.1401, 11.1496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0306, 29.0669, 11.1496)
 curve = SubResource("Curve3D_fa5xv")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3DAquae"]
